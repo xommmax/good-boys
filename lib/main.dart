@@ -1,20 +1,12 @@
+import 'package:breed_repository/breed_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
-  runApp(const MainApp());
-}
+import 'app.dart';
+import 'common/bloc_observer.dart';
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
-  }
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = const AppBlocObserver();
+  runApp(BreedApp(breedRepository: BreedRepository()));
 }
