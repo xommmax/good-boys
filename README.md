@@ -1,3 +1,3 @@
-# flutter_demo_app
+# Good Boys Catalogue
 
-A new Flutter project.
+App that will utilize best practices for building Flutter mobile apps with [BLoC pattern](https://bloclibrary.dev/)
