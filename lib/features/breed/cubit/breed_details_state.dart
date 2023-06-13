@@ -7,6 +7,7 @@ class BreedDetailsState with _$BreedDetailsState {
   const factory BreedDetailsState({
     required Breed breed,
     required Set<String> imageUrls,
+    @Default(false) bool isFavorite,
     @Default(BreedDetailsStatus.initial) BreedDetailsStatus status,
   }) = _BreedDetailsState;
 }

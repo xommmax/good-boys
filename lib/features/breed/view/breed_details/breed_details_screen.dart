@@ -1,5 +1,6 @@
 import 'package:breed_repository/breed_repository.dart' show BreedRepository;
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:favorites_repository/favorites_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_demo_app/features/breed/cubit/breed_details_cubit.dart';
@@ -16,8 +17,11 @@ class BreedDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          BreedDetailsCubit(breed, context.read<BreedRepository>())..fetchImageUrls(),
+      create: (context) => BreedDetailsCubit(
+        breed,
+        context.read<BreedRepository>(),
+        context.read<FavoritesRepository>(),
+      ),
       child: BreedDetailsView(breed),
     );
   }
@@ -29,28 +33,37 @@ class BreedDetailsView extends StatelessWidget {
   final Breed breed;
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocBuilder<BreedDetailsCubit, BreedDetailsState>(
-        builder: (context, state) {
-          return CustomScrollView(
+  Widget build(BuildContext context) => BlocBuilder<BreedDetailsCubit, BreedDetailsState>(
+        builder: (context, state) => Scaffold(
+          floatingActionButton: FloatingActionButton(
+            onPressed: context.read<BreedDetailsCubit>().onFavoritePressed,
+            child: Icon(
+              state.isFavorite ? Icons.star_rounded : Icons.star_outline_rounded,
+              size: 32,
+            ),
+          ),
+          body: CustomScrollView(
             slivers: <Widget>[
               SliverAppBar(
+                backgroundColor: Colors.transparent,
                 expandedHeight: 250.0,
                 floating: false,
                 pinned: true,
                 flexibleSpace: FlexibleSpaceBar(
                   expandedTitleScale: 1.7,
                   centerTitle: true,
-                  title: Text(state.breed.name,
+                  title: Text(breed.name,
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 16,
                       )),
-                  background: BreedImageSlider(
-                    children: state.imageUrls
-                        .map((url) => CachedNetworkImage(imageUrl: url, fit: BoxFit.cover))
-                        .toList(),
+                  background: Hero(
+                    tag: 'breed_image_${breed.id}',
+                    child: BreedImageSlider(
+                      children: state.imageUrls
+                          .map((url) => CachedNetworkImage(imageUrl: url, fit: BoxFit.cover))
+                          .toList(),
+                    ),
                   ),
                 ),
               ),
@@ -59,9 +72,7 @@ class BreedDetailsView extends StatelessWidget {
                 sliver: BreedDetailsList(breed),
               ),
             ],
-          );
-        },
-      ),
-    );
-  }
+          ),
+        ),
+      );
 }

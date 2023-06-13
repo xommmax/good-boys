@@ -20,10 +20,13 @@ class BreedListItem extends StatelessWidget {
               aspectRatio: 4 / 3,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child: CachedNetworkImage(
-                  imageUrl: breed.imageUrl,
-                  fit: BoxFit.cover,
-                  alignment: Alignment.topCenter,
+                child: Hero(
+                  tag: 'breed_image_${breed.id}',
+                  child: CachedNetworkImage(
+                    imageUrl: breed.imageUrl,
+                    fit: BoxFit.cover,
+                    alignment: Alignment.topCenter,
+                  ),
                 ),
               ),
             ),

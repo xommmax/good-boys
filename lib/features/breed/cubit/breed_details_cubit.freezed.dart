@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$BreedDetailsState {
   Breed get breed => throw _privateConstructorUsedError;
   Set<String> get imageUrls => throw _privateConstructorUsedError;
+  bool get isFavorite => throw _privateConstructorUsedError;
   BreedDetailsStatus get status => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -31,7 +32,11 @@ abstract class $BreedDetailsStateCopyWith<$Res> {
           BreedDetailsState value, $Res Function(BreedDetailsState) then) =
       _$BreedDetailsStateCopyWithImpl<$Res, BreedDetailsState>;
   @useResult
-  $Res call({Breed breed, Set<String> imageUrls, BreedDetailsStatus status});
+  $Res call(
+      {Breed breed,
+      Set<String> imageUrls,
+      bool isFavorite,
+      BreedDetailsStatus status});
 
   $BreedCopyWith<$Res> get breed;
 }
@@ -51,6 +56,7 @@ class _$BreedDetailsStateCopyWithImpl<$Res, $Val extends BreedDetailsState>
   $Res call({
     Object? breed = null,
     Object? imageUrls = null,
+    Object? isFavorite = null,
     Object? status = null,
   }) {
     return _then(_value.copyWith(
@@ -62,6 +68,10 @@ class _$BreedDetailsStateCopyWithImpl<$Res, $Val extends BreedDetailsState>
           ? _value.imageUrls
           : imageUrls // ignore: cast_nullable_to_non_nullable
               as Set<String>,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -86,7 +96,11 @@ abstract class _$$_BreedDetailsStateCopyWith<$Res>
       __$$_BreedDetailsStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Breed breed, Set<String> imageUrls, BreedDetailsStatus status});
+  $Res call(
+      {Breed breed,
+      Set<String> imageUrls,
+      bool isFavorite,
+      BreedDetailsStatus status});
 
   @override
   $BreedCopyWith<$Res> get breed;
@@ -105,6 +119,7 @@ class __$$_BreedDetailsStateCopyWithImpl<$Res>
   $Res call({
     Object? breed = null,
     Object? imageUrls = null,
+    Object? isFavorite = null,
     Object? status = null,
   }) {
     return _then(_$_BreedDetailsState(
@@ -116,6 +131,10 @@ class __$$_BreedDetailsStateCopyWithImpl<$Res>
           ? _value._imageUrls
           : imageUrls // ignore: cast_nullable_to_non_nullable
               as Set<String>,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -130,6 +149,7 @@ class _$_BreedDetailsState implements _BreedDetailsState {
   const _$_BreedDetailsState(
       {required this.breed,
       required final Set<String> imageUrls,
+      this.isFavorite = false,
       this.status = BreedDetailsStatus.initial})
       : _imageUrls = imageUrls;
 
@@ -145,11 +165,14 @@ class _$_BreedDetailsState implements _BreedDetailsState {
 
   @override
   @JsonKey()
+  final bool isFavorite;
+  @override
+  @JsonKey()
   final BreedDetailsStatus status;
 
   @override
   String toString() {
-    return 'BreedDetailsState(breed: $breed, imageUrls: $imageUrls, status: $status)';
+    return 'BreedDetailsState(breed: $breed, imageUrls: $imageUrls, isFavorite: $isFavorite, status: $status)';
   }
 
   @override
@@ -160,12 +183,14 @@ class _$_BreedDetailsState implements _BreedDetailsState {
             (identical(other.breed, breed) || other.breed == breed) &&
             const DeepCollectionEquality()
                 .equals(other._imageUrls, _imageUrls) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite) &&
             (identical(other.status, status) || other.status == status));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, breed,
-      const DeepCollectionEquality().hash(_imageUrls), status);
+      const DeepCollectionEquality().hash(_imageUrls), isFavorite, status);
 
   @JsonKey(ignore: true)
   @override
@@ -179,12 +204,15 @@ abstract class _BreedDetailsState implements BreedDetailsState {
   const factory _BreedDetailsState(
       {required final Breed breed,
       required final Set<String> imageUrls,
+      final bool isFavorite,
       final BreedDetailsStatus status}) = _$_BreedDetailsState;
 
   @override
   Breed get breed;
   @override
   Set<String> get imageUrls;
+  @override
+  bool get isFavorite;
   @override
   BreedDetailsStatus get status;
   @override
