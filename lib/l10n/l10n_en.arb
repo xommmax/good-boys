@@ -2,5 +2,25 @@
   "appName": "Good Boys Catalogue",
   "breeds": "Breeds",
   "search": "Search",
-  "favorites": "Favorites"
+  "favorites": "Favorites",
+  "commonError": "Error occurred. Please try again",
+  "weight": "Weight",
+  "height": "Height",
+  "bredFor": "Bred for",
+  "breedGroup": "Breed group",
+  "lifeSpan": "Life span",
+  "temperament": "Temperament",
+  "origin": "Origin",
+  "kg": "kg",
+  "@kg":{
+    "description": "kilogram"
+  },
+  "m": "m",
+  "@m":{
+    "description": "meter"
+  },
+  "cm": "cm",
+  "@cm": {
+    "description": "centimeter"
+  }
 }

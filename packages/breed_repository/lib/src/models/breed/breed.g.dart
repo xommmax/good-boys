@@ -6,17 +6,30 @@ part of 'breed.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Breed _$$_BreedFromJson(Map<String, dynamic> json) => _$_Breed(
-      weight: json['weight'] as String?,
-      height: json['height'] as String?,
-      id: json['id'] as int?,
-      name: json['name'] as String?,
-      bredFor: json['bredFor'] as String?,
-      breedGroup: json['breedGroup'] as String?,
-      lifeSpan: json['lifeSpan'] as String?,
-      temperament: json['temperament'] as String?,
-      origin: json['origin'] as String?,
-      imageUrl: json['imageUrl'] as String,
+_$_Breed _$$_BreedFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$_Breed',
+      json,
+      ($checkedConvert) {
+        final val = _$_Breed(
+          weight: $checkedConvert('weight', (v) => v as String?),
+          height: $checkedConvert('height', (v) => v as String?),
+          id: $checkedConvert('id', (v) => v as int),
+          name: $checkedConvert('name', (v) => v as String),
+          bredFor: $checkedConvert('bred_for', (v) => v as String?),
+          breedGroup: $checkedConvert('breed_group', (v) => v as String?),
+          lifeSpan: $checkedConvert('life_span', (v) => v as String?),
+          temperament: $checkedConvert('temperament', (v) => v as String?),
+          origin: $checkedConvert('origin', (v) => v as String?),
+          imageUrl: $checkedConvert('image_url', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'bredFor': 'bred_for',
+        'breedGroup': 'breed_group',
+        'lifeSpan': 'life_span',
+        'imageUrl': 'image_url'
+      },
     );
 
 Map<String, dynamic> _$$_BreedToJson(_$_Breed instance) => <String, dynamic>{
@@ -24,10 +37,10 @@ Map<String, dynamic> _$$_BreedToJson(_$_Breed instance) => <String, dynamic>{
       'height': instance.height,
       'id': instance.id,
       'name': instance.name,
-      'bredFor': instance.bredFor,
-      'breedGroup': instance.breedGroup,
-      'lifeSpan': instance.lifeSpan,
+      'bred_for': instance.bredFor,
+      'breed_group': instance.breedGroup,
+      'life_span': instance.lifeSpan,
       'temperament': instance.temperament,
       'origin': instance.origin,
-      'imageUrl': instance.imageUrl,
+      'image_url': instance.imageUrl,
     };

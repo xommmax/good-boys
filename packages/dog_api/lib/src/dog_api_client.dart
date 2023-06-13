@@ -15,7 +15,7 @@ class DogApiClient {
     _dioClient.options.headers['x-api-key'] = const String.fromEnvironment('DOG_API_KEY');
   }
 
-  Future<List<Breed>> getBreeds({int page = 0, int limit = 10}) async {
+  Future<List<Breed>> getBreeds({int page = 0, int limit = 20}) async {
     final response = await _dioClient.get(
       '/breeds',
       queryParameters: {
@@ -30,5 +30,24 @@ class DogApiClient {
     final breedsJson = response.data as List;
 
     return breedsJson.map((e) => Breed.fromJson(e)).toList();
+  }
+
+  Future<List<String>> getBreedImages(int breedId) async {
+    final response = await _dioClient.get(
+      '/images/search',
+      queryParameters: {
+        'limit': 10,
+        'breed_id': breedId,
+        'include_breeds': false,
+        'size': 'full',
+      },
+    );
+    if (response.statusCode != 200) {
+      throw BreedRequestFailure();
+    }
+
+    final imagesJson = response.data as List;
+
+    return imagesJson.map((e) => e['url'] as String).toList();
   }
 }

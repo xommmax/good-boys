@@ -9,7 +9,8 @@ part 'breed.g.dart';
 @freezed
 class Breed with _$Breed {
   const factory Breed({
-    required String? name,
+    required int id,
+    required String name,
     required String? weight,
     required String? height,
     required String? bredFor,
@@ -23,6 +24,7 @@ class Breed with _$Breed {
   factory Breed.fromJson(Map<String, dynamic> json) => _$BreedFromJson(json);
 
   factory Breed.fromRepo(breed_repository.Breed breed) => Breed(
+        id: breed.id,
         name: breed.name,
         weight: breed.weight,
         height: breed.height,

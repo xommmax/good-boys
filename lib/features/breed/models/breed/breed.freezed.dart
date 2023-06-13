@@ -20,7 +20,8 @@ Breed _$BreedFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Breed {
-  String? get name => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   String? get weight => throw _privateConstructorUsedError;
   String? get height => throw _privateConstructorUsedError;
   String? get bredFor => throw _privateConstructorUsedError;
@@ -41,7 +42,8 @@ abstract class $BreedCopyWith<$Res> {
       _$BreedCopyWithImpl<$Res, Breed>;
   @useResult
   $Res call(
-      {String? name,
+      {int id,
+      String name,
       String? weight,
       String? height,
       String? bredFor,
@@ -65,7 +67,8 @@ class _$BreedCopyWithImpl<$Res, $Val extends Breed>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? id = null,
+    Object? name = null,
     Object? weight = freezed,
     Object? height = freezed,
     Object? bredFor = freezed,
@@ -76,10 +79,14 @@ class _$BreedCopyWithImpl<$Res, $Val extends Breed>
     Object? imageUrl = null,
   }) {
     return _then(_value.copyWith(
-      name: freezed == name
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       weight: freezed == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
@@ -123,7 +130,8 @@ abstract class _$$_BreedCopyWith<$Res> implements $BreedCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? name,
+      {int id,
+      String name,
       String? weight,
       String? height,
       String? bredFor,
@@ -143,7 +151,8 @@ class __$$_BreedCopyWithImpl<$Res> extends _$BreedCopyWithImpl<$Res, _$_Breed>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? id = null,
+    Object? name = null,
     Object? weight = freezed,
     Object? height = freezed,
     Object? bredFor = freezed,
@@ -154,10 +163,14 @@ class __$$_BreedCopyWithImpl<$Res> extends _$BreedCopyWithImpl<$Res, _$_Breed>
     Object? imageUrl = null,
   }) {
     return _then(_$_Breed(
-      name: freezed == name
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       weight: freezed == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
@@ -198,7 +211,8 @@ class __$$_BreedCopyWithImpl<$Res> extends _$BreedCopyWithImpl<$Res, _$_Breed>
 @JsonSerializable()
 class _$_Breed implements _Breed {
   const _$_Breed(
-      {required this.name,
+      {required this.id,
+      required this.name,
       required this.weight,
       required this.height,
       required this.bredFor,
@@ -212,7 +226,9 @@ class _$_Breed implements _Breed {
       _$$_BreedFromJson(json);
 
   @override
-  final String? name;
+  final int id;
+  @override
+  final String name;
   @override
   final String? weight;
   @override
@@ -232,7 +248,7 @@ class _$_Breed implements _Breed {
 
   @override
   String toString() {
-    return 'Breed(name: $name, weight: $weight, height: $height, bredFor: $bredFor, breedGroup: $breedGroup, lifeSpan: $lifeSpan, temperament: $temperament, origin: $origin, imageUrl: $imageUrl)';
+    return 'Breed(id: $id, name: $name, weight: $weight, height: $height, bredFor: $bredFor, breedGroup: $breedGroup, lifeSpan: $lifeSpan, temperament: $temperament, origin: $origin, imageUrl: $imageUrl)';
   }
 
   @override
@@ -240,6 +256,7 @@ class _$_Breed implements _Breed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Breed &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.weight, weight) || other.weight == weight) &&
             (identical(other.height, height) || other.height == height) &&
@@ -257,8 +274,8 @@ class _$_Breed implements _Breed {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, weight, height, bredFor,
-      breedGroup, lifeSpan, temperament, origin, imageUrl);
+  int get hashCode => Object.hash(runtimeType, id, name, weight, height,
+      bredFor, breedGroup, lifeSpan, temperament, origin, imageUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -276,7 +293,8 @@ class _$_Breed implements _Breed {
 
 abstract class _Breed implements Breed {
   const factory _Breed(
-      {required final String? name,
+      {required final int id,
+      required final String name,
       required final String? weight,
       required final String? height,
       required final String? bredFor,
@@ -289,7 +307,9 @@ abstract class _Breed implements Breed {
   factory _Breed.fromJson(Map<String, dynamic> json) = _$_Breed.fromJson;
 
   @override
-  String? get name;
+  int get id;
+  @override
+  String get name;
   @override
   String? get weight;
   @override

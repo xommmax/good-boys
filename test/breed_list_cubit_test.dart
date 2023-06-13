@@ -33,14 +33,14 @@ void main() {
       blocTest<BreedListCubit, BreedListState>(
         'emits nothing when page is negative',
         build: () => breedListCubit,
-        act: (cubit) => cubit.fetchBreedList(page: -10),
+        act: (cubit) => cubit.fetchPage(page: -10),
         expect: () => <BreedListState>[],
       );
 
       blocTest<BreedListCubit, BreedListState>(
         'calls fetchBreedList with correct page',
         build: () => breedListCubit,
-        act: (cubit) => cubit.fetchBreedList(page: page),
+        act: (cubit) => cubit.fetchPage(page: page),
         verify: (_) {
           verify(() => breedRepository.getBreeds(page: page)).called(1);
         },
@@ -54,7 +54,7 @@ void main() {
           ).thenThrow(Exception('oops'));
         },
         build: () => breedListCubit,
-        act: (cubit) => cubit.fetchBreedList(page: page),
+        act: (cubit) => cubit.fetchInitialPage(),
         expect: () => <BreedListState>[
           BreedListState(status: BreedListStatus.loading),
           BreedListState(status: BreedListStatus.failure),
@@ -64,7 +64,7 @@ void main() {
       blocTest<BreedListCubit, BreedListState>(
         'emits [loading, success] when fetchBreedList returns data',
         build: () => breedListCubit,
-        act: (cubit) => cubit.fetchBreedList(page: page),
+        act: (cubit) => cubit.fetchInitialPage(),
         expect: () => <dynamic>[
           BreedListState(status: BreedListStatus.loading),
           isA<BreedListState>().having((s) => s.status, 'status', BreedListStatus.success).having(
@@ -87,8 +87,8 @@ void main() {
         'appends next page results to the current breed list during pagination',
         build: () => breedListCubit,
         act: (cubit) async {
-          await cubit.fetchBreedList(page: 0);
-          await cubit.fetchBreedList(page: 1);
+          await cubit.fetchInitialPage();
+          await cubit.fetchNextPage();
         },
         expect: () => <dynamic>[
           BreedListState(status: BreedListStatus.loading),

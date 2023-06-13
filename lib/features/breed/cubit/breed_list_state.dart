@@ -6,7 +6,8 @@ enum BreedListStatus { initial, loading, success, failure }
 class BreedListState with _$BreedListState {
   const factory BreedListState({
     @Default([]) List<Breed> breeds,
-    @Default(0) int page,
     @Default(BreedListStatus.initial) BreedListStatus status,
+    @Default(0) int page,
+    @Default(true) bool hasMore,
   }) = _BreedListState;
 }

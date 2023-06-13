@@ -6,7 +6,8 @@ import 'common/nav/router.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 
 class BreedApp extends StatelessWidget {
-  const BreedApp({required BreedRepository breedRepository, super.key}) : _breedRepository = breedRepository;
+  const BreedApp({required BreedRepository breedRepository, super.key})
+      : _breedRepository = breedRepository;
 
   final BreedRepository _breedRepository;
 

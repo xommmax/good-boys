@@ -13,8 +13,8 @@ _$_Breed _$$_BreedFromJson(Map<String, dynamic> json) => $checkedCreate(
         final val = _$_Breed(
           weight: $checkedConvert('weight', (v) => v as Map<String, dynamic>?),
           height: $checkedConvert('height', (v) => v as Map<String, dynamic>?),
-          id: $checkedConvert('id', (v) => v as int?),
-          name: $checkedConvert('name', (v) => v as String?),
+          id: $checkedConvert('id', (v) => v as int),
+          name: $checkedConvert('name', (v) => v as String),
           bredFor: $checkedConvert('bred_for', (v) => v as String?),
           breedGroup: $checkedConvert('breed_group', (v) => v as String?),
           lifeSpan: $checkedConvert('life_span', (v) => v as String?),
@@ -22,7 +22,7 @@ _$_Breed _$$_BreedFromJson(Map<String, dynamic> json) => $checkedCreate(
           origin: $checkedConvert('origin', (v) => v as String?),
           referenceImageId:
               $checkedConvert('reference_image_id', (v) => v as String?),
-          image: $checkedConvert('image', (v) => v as Map<String, dynamic>?),
+          image: $checkedConvert('image', (v) => v as Map<String, dynamic>),
         );
         return val;
       },

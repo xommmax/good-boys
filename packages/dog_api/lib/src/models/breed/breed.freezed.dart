@@ -22,15 +22,15 @@ Breed _$BreedFromJson(Map<String, dynamic> json) {
 mixin _$Breed {
   Map<dynamic, dynamic>? get weight => throw _privateConstructorUsedError;
   Map<dynamic, dynamic>? get height => throw _privateConstructorUsedError;
-  int? get id => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   String? get bredFor => throw _privateConstructorUsedError;
   String? get breedGroup => throw _privateConstructorUsedError;
   String? get lifeSpan => throw _privateConstructorUsedError;
   String? get temperament => throw _privateConstructorUsedError;
   String? get origin => throw _privateConstructorUsedError;
   String? get referenceImageId => throw _privateConstructorUsedError;
-  Map<dynamic, dynamic>? get image => throw _privateConstructorUsedError;
+  Map<dynamic, dynamic> get image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,15 +45,15 @@ abstract class $BreedCopyWith<$Res> {
   $Res call(
       {Map<dynamic, dynamic>? weight,
       Map<dynamic, dynamic>? height,
-      int? id,
-      String? name,
+      int id,
+      String name,
       String? bredFor,
       String? breedGroup,
       String? lifeSpan,
       String? temperament,
       String? origin,
       String? referenceImageId,
-      Map<dynamic, dynamic>? image});
+      Map<dynamic, dynamic> image});
 }
 
 /// @nodoc
@@ -71,15 +71,15 @@ class _$BreedCopyWithImpl<$Res, $Val extends Breed>
   $Res call({
     Object? weight = freezed,
     Object? height = freezed,
-    Object? id = freezed,
-    Object? name = freezed,
+    Object? id = null,
+    Object? name = null,
     Object? bredFor = freezed,
     Object? breedGroup = freezed,
     Object? lifeSpan = freezed,
     Object? temperament = freezed,
     Object? origin = freezed,
     Object? referenceImageId = freezed,
-    Object? image = freezed,
+    Object? image = null,
   }) {
     return _then(_value.copyWith(
       weight: freezed == weight
@@ -90,14 +90,14 @@ class _$BreedCopyWithImpl<$Res, $Val extends Breed>
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as Map<dynamic, dynamic>?,
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: freezed == name
+              as int,
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       bredFor: freezed == bredFor
           ? _value.bredFor
           : bredFor // ignore: cast_nullable_to_non_nullable
@@ -122,10 +122,10 @@ class _$BreedCopyWithImpl<$Res, $Val extends Breed>
           ? _value.referenceImageId
           : referenceImageId // ignore: cast_nullable_to_non_nullable
               as String?,
-      image: freezed == image
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as Map<dynamic, dynamic>?,
+              as Map<dynamic, dynamic>,
     ) as $Val);
   }
 }
@@ -139,15 +139,15 @@ abstract class _$$_BreedCopyWith<$Res> implements $BreedCopyWith<$Res> {
   $Res call(
       {Map<dynamic, dynamic>? weight,
       Map<dynamic, dynamic>? height,
-      int? id,
-      String? name,
+      int id,
+      String name,
       String? bredFor,
       String? breedGroup,
       String? lifeSpan,
       String? temperament,
       String? origin,
       String? referenceImageId,
-      Map<dynamic, dynamic>? image});
+      Map<dynamic, dynamic> image});
 }
 
 /// @nodoc
@@ -161,15 +161,15 @@ class __$$_BreedCopyWithImpl<$Res> extends _$BreedCopyWithImpl<$Res, _$_Breed>
   $Res call({
     Object? weight = freezed,
     Object? height = freezed,
-    Object? id = freezed,
-    Object? name = freezed,
+    Object? id = null,
+    Object? name = null,
     Object? bredFor = freezed,
     Object? breedGroup = freezed,
     Object? lifeSpan = freezed,
     Object? temperament = freezed,
     Object? origin = freezed,
     Object? referenceImageId = freezed,
-    Object? image = freezed,
+    Object? image = null,
   }) {
     return _then(_$_Breed(
       weight: freezed == weight
@@ -180,14 +180,14 @@ class __$$_BreedCopyWithImpl<$Res> extends _$BreedCopyWithImpl<$Res, _$_Breed>
           ? _value._height
           : height // ignore: cast_nullable_to_non_nullable
               as Map<dynamic, dynamic>?,
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: freezed == name
+              as int,
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       bredFor: freezed == bredFor
           ? _value.bredFor
           : bredFor // ignore: cast_nullable_to_non_nullable
@@ -212,10 +212,10 @@ class __$$_BreedCopyWithImpl<$Res> extends _$BreedCopyWithImpl<$Res, _$_Breed>
           ? _value.referenceImageId
           : referenceImageId // ignore: cast_nullable_to_non_nullable
               as String?,
-      image: freezed == image
+      image: null == image
           ? _value._image
           : image // ignore: cast_nullable_to_non_nullable
-              as Map<dynamic, dynamic>?,
+              as Map<dynamic, dynamic>,
     ));
   }
 }
@@ -234,7 +234,7 @@ class _$_Breed implements _Breed {
       required this.temperament,
       required this.origin,
       required this.referenceImageId,
-      required final Map<dynamic, dynamic>? image})
+      required final Map<dynamic, dynamic> image})
       : _weight = weight,
         _height = height,
         _image = image;
@@ -263,9 +263,9 @@ class _$_Breed implements _Breed {
   }
 
   @override
-  final int? id;
+  final int id;
   @override
-  final String? name;
+  final String name;
   @override
   final String? bredFor;
   @override
@@ -278,14 +278,12 @@ class _$_Breed implements _Breed {
   final String? origin;
   @override
   final String? referenceImageId;
-  final Map<dynamic, dynamic>? _image;
+  final Map<dynamic, dynamic> _image;
   @override
-  Map<dynamic, dynamic>? get image {
-    final value = _image;
-    if (value == null) return null;
+  Map<dynamic, dynamic> get image {
     if (_image is EqualUnmodifiableMapView) return _image;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
+    return EqualUnmodifiableMapView(_image);
   }
 
   @override
@@ -349,15 +347,15 @@ abstract class _Breed implements Breed {
   const factory _Breed(
       {required final Map<dynamic, dynamic>? weight,
       required final Map<dynamic, dynamic>? height,
-      required final int? id,
-      required final String? name,
+      required final int id,
+      required final String name,
       required final String? bredFor,
       required final String? breedGroup,
       required final String? lifeSpan,
       required final String? temperament,
       required final String? origin,
       required final String? referenceImageId,
-      required final Map<dynamic, dynamic>? image}) = _$_Breed;
+      required final Map<dynamic, dynamic> image}) = _$_Breed;
 
   factory _Breed.fromJson(Map<String, dynamic> json) = _$_Breed.fromJson;
 
@@ -366,9 +364,9 @@ abstract class _Breed implements Breed {
   @override
   Map<dynamic, dynamic>? get height;
   @override
-  int? get id;
+  int get id;
   @override
-  String? get name;
+  String get name;
   @override
   String? get bredFor;
   @override
@@ -382,7 +380,7 @@ abstract class _Breed implements Breed {
   @override
   String? get referenceImageId;
   @override
-  Map<dynamic, dynamic>? get image;
+  Map<dynamic, dynamic> get image;
   @override
   @JsonKey(ignore: true)
   _$$_BreedCopyWith<_$_Breed> get copyWith =>

@@ -10,15 +10,15 @@ class Breed with _$Breed {
   const factory Breed({
     required Map? weight,
     required Map? height,
-    required int? id,
-    required String? name,
+    required int id,
+    required String name,
     required String? bredFor,
     required String? breedGroup,
     required String? lifeSpan,
     required String? temperament,
     required String? origin,
     required String? referenceImageId,
-    required Map? image,
+    required Map image,
   }) = _Breed;
 
   factory Breed.fromJson(Map<String, dynamic> json) => _$BreedFromJson(json);
