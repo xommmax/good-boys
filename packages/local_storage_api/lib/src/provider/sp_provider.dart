@@ -1,17 +1,12 @@
+import 'package:local_storage_api/src/provider/local_storage_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-abstract class LocalStorageProvider {
-  Future<void> set(String key, dynamic value);
-  Future<Object?> get(String key);
-  Future<void> remove(String key);
-}
 
 class SPLocalStorageProvider implements LocalStorageProvider {
   const SPLocalStorageProvider();
 
   @override
   Future<void> set(String key, value) async {
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = await _getStorage();
     switch (value.runtimeType) {
       case bool:
         prefs.setBool(key, value);
@@ -35,14 +30,21 @@ class SPLocalStorageProvider implements LocalStorageProvider {
   }
 
   @override
-  Future<Object?> get(String key) async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.get(key);
+  Future<T> get<T>(String key) async {
+    final prefs = await _getStorage();
+    return prefs.get(key) as T;
   }
 
   @override
   Future<void> remove(String key) async {
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = await _getStorage();
     prefs.remove(key);
   }
+
+  @override
+  Future<Stream<T>> listen<T>(String key) {
+    throw UnimplementedError();
+  }
+
+  Future<SharedPreferences> _getStorage() => SharedPreferences.getInstance();
 }

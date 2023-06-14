@@ -1,13 +1,17 @@
-import 'package:local_storage_api/src/local_storage_provider.dart';
+import 'package:local_storage_api/src/provider/hive_provider.dart';
+import 'package:local_storage_api/src/provider/local_storage_provider.dart';
 
 class LocalStorage {
-  const LocalStorage([this.provider = const SPLocalStorageProvider()]);
+  LocalStorage({LocalStorageProvider? provider})
+      : _provider = provider ?? HiveLocalStorageProvider();
 
-  final LocalStorageProvider provider;
+  final LocalStorageProvider _provider;
 
-  Future<void> set(String key, dynamic value) => provider.set(key, value);
+  Future<void> set(String key, dynamic value) => _provider.set(key, value);
 
-  Future<Object?> get(String key) => provider.get(key);
+  Future<T> get<T>(String key) => _provider.get<T>(key);
 
-  Future<void> remove(String key) => provider.remove(key);
+  Future<void> remove(String key) => _provider.remove(key);
+
+  Future<Stream<T>> listen<T>(String key) => _provider.listen<T>(key);
 }

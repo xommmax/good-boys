@@ -2,7 +2,7 @@ import 'package:local_storage_api/local_storage_api.dart';
 
 class FavoritesRepository {
   FavoritesRepository({LocalStorage? localStorage})
-      : _localStorage = localStorage ?? const LocalStorage();
+      : _localStorage = localStorage ?? LocalStorage();
 
   final LocalStorage _localStorage;
   static const String favoritesListKey = 'favoritesListKey';
