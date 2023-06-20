@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_demo_app/features/breed/models/breed/breed.dart';
-import 'package:go_router/go_router.dart';
 
 class BreedListItem extends StatelessWidget {
-  const BreedListItem({super.key, required this.breed});
+  const BreedListItem({super.key, required this.breed, required this.callback});
 
   final Breed breed;
+  final VoidCallback callback;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.go('/breedList/breedDetails', extra: breed),
+      onTap: callback,
       child: Row(
         children: [
           Flexible(

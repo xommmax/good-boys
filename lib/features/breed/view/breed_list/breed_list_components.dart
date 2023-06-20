@@ -46,7 +46,10 @@ class _BreedListPopulatedState extends State<BreedListPopulated> {
                 key: const PageStorageKey('breedListKey'),
                 controller: _scrollController,
                 itemCount: state.breeds.length,
-                itemBuilder: (_, index) => BreedListItem(breed: state.breeds[index]),
+                itemBuilder: (_, index) => BreedListItem(
+                  breed: state.breeds[index],
+                  callback: () => context.go('/breedList/breedDetails', extra: state.breeds[index]),
+                ),
                 separatorBuilder: (_, index) => Divider(
                   height: 24,
                   color: Colors.black.withAlpha(40),

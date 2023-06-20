@@ -2,6 +2,7 @@ import 'package:flutter_demo_app/features/breed/models/breed/breed.dart';
 import 'package:breed_repository/breed_repository.dart' as breed_repository;
 
 const testBreed = Breed(
+  id: 1,
   name: 'Affenpinscher',
   weight: '3 - 6',
   height: '23 - 29',
@@ -11,6 +12,7 @@ const testBreed = Breed(
   temperament: 'Stubborn, Curious, Playful, Adventurous, Active, Fun-loving',
   origin: 'Germany, France',
   imageUrl: 'https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg',
+  isFavorite: false,
 );
 
 const testRepoBreed = breed_repository.Breed(
@@ -24,4 +26,5 @@ const testRepoBreed = breed_repository.Breed(
   temperament: 'Aloof, Clownish, Dignified, Independent, Happy',
   origin: 'Afghanistan, Iran, Pakistan',
   imageUrl: 'https://cdn2.thedogapi.com/images/hMyT4CDXR.jpg',
+  isFavorite: false,
 );

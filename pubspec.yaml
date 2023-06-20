@@ -20,8 +20,6 @@ dependencies:
   json_annotation: ^4.8.1
   breed_repository:
     path: packages/breed_repository
-  favorites_repository:
-    path: packages/favorites_repository
   cached_network_image: ^3.2.3
 
 dev_dependencies:

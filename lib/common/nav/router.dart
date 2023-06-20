@@ -3,7 +3,7 @@ import 'package:flutter_demo_app/features/breed/view/breed_list/breed_list_scree
 import 'package:go_router/go_router.dart';
 
 import '../../features/breed/models/breed/breed.dart';
-import '../../features/favorites/view/favorites.dart';
+import '../../features/favorites/view/favorites_list_screen.dart';
 import '../../features/search/view/search.dart';
 import '../view/scaffold_with_nav_bar.dart';
 
@@ -54,7 +54,14 @@ class AppRouter extends GoRouter {
                   routes: [
                     GoRoute(
                       path: '/favorites',
-                      builder: (context, state) => const FavoritesScreen(),
+                      builder: (context, state) => const FavoritesListScreen(),
+                      routes: [
+                        GoRoute(
+                          path: 'breedDetails',
+                          builder: (context, state) =>
+                              BreedDetailsScreen(breed: state.extra as Breed),
+                        )
+                      ],
                     ),
                   ],
                 ),

@@ -1,17 +1,13 @@
-import 'package:local_storage_api/src/provider/hive_provider.dart';
-import 'package:local_storage_api/src/provider/local_storage_provider.dart';
+import 'models/breed/breed.dart';
 
-class LocalStorage {
-  LocalStorage({LocalStorageProvider? provider})
-      : _provider = provider ?? HiveLocalStorageProvider();
+abstract class LocalStorage {
+  Future<Breed?> getBreed(int breedId);
 
-  final LocalStorageProvider _provider;
+  Future<void> putBreeds(List<Breed> breeds);
 
-  Future<void> set(String key, dynamic value) => _provider.set(key, value);
+  Future<void> setFavorite(int breedId, bool isFavorite);
 
-  Future<T> get<T>(String key) => _provider.get<T>(key);
+  Future<List<Breed>> getFavorites();
 
-  Future<void> remove(String key) => _provider.remove(key);
-
-  Future<Stream<T>> listen<T>(String key) => _provider.listen<T>(key);
+  Stream<List<Breed>> listenFavorites();
 }

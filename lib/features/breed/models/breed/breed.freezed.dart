@@ -30,6 +30,7 @@ mixin _$Breed {
   String? get temperament => throw _privateConstructorUsedError;
   String? get origin => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
+  bool get isFavorite => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +52,8 @@ abstract class $BreedCopyWith<$Res> {
       String? lifeSpan,
       String? temperament,
       String? origin,
-      String imageUrl});
+      String imageUrl,
+      bool isFavorite});
 }
 
 /// @nodoc
@@ -77,6 +79,7 @@ class _$BreedCopyWithImpl<$Res, $Val extends Breed>
     Object? temperament = freezed,
     Object? origin = freezed,
     Object? imageUrl = null,
+    Object? isFavorite = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -119,6 +122,10 @@ class _$BreedCopyWithImpl<$Res, $Val extends Breed>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -139,7 +146,8 @@ abstract class _$$_BreedCopyWith<$Res> implements $BreedCopyWith<$Res> {
       String? lifeSpan,
       String? temperament,
       String? origin,
-      String imageUrl});
+      String imageUrl,
+      bool isFavorite});
 }
 
 /// @nodoc
@@ -161,6 +169,7 @@ class __$$_BreedCopyWithImpl<$Res> extends _$BreedCopyWithImpl<$Res, _$_Breed>
     Object? temperament = freezed,
     Object? origin = freezed,
     Object? imageUrl = null,
+    Object? isFavorite = null,
   }) {
     return _then(_$_Breed(
       id: null == id
@@ -203,6 +212,10 @@ class __$$_BreedCopyWithImpl<$Res> extends _$BreedCopyWithImpl<$Res, _$_Breed>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -220,7 +233,8 @@ class _$_Breed implements _Breed {
       required this.lifeSpan,
       required this.temperament,
       required this.origin,
-      required this.imageUrl});
+      required this.imageUrl,
+      required this.isFavorite});
 
   factory _$_Breed.fromJson(Map<String, dynamic> json) =>
       _$$_BreedFromJson(json);
@@ -245,10 +259,12 @@ class _$_Breed implements _Breed {
   final String? origin;
   @override
   final String imageUrl;
+  @override
+  final bool isFavorite;
 
   @override
   String toString() {
-    return 'Breed(id: $id, name: $name, weight: $weight, height: $height, bredFor: $bredFor, breedGroup: $breedGroup, lifeSpan: $lifeSpan, temperament: $temperament, origin: $origin, imageUrl: $imageUrl)';
+    return 'Breed(id: $id, name: $name, weight: $weight, height: $height, bredFor: $bredFor, breedGroup: $breedGroup, lifeSpan: $lifeSpan, temperament: $temperament, origin: $origin, imageUrl: $imageUrl, isFavorite: $isFavorite)';
   }
 
   @override
@@ -269,13 +285,15 @@ class _$_Breed implements _Breed {
                 other.temperament == temperament) &&
             (identical(other.origin, origin) || other.origin == origin) &&
             (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl));
+                other.imageUrl == imageUrl) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, weight, height,
-      bredFor, breedGroup, lifeSpan, temperament, origin, imageUrl);
+      bredFor, breedGroup, lifeSpan, temperament, origin, imageUrl, isFavorite);
 
   @JsonKey(ignore: true)
   @override
@@ -302,7 +320,8 @@ abstract class _Breed implements Breed {
       required final String? lifeSpan,
       required final String? temperament,
       required final String? origin,
-      required final String imageUrl}) = _$_Breed;
+      required final String imageUrl,
+      required final bool isFavorite}) = _$_Breed;
 
   factory _Breed.fromJson(Map<String, dynamic> json) = _$_Breed.fromJson;
 
@@ -326,6 +345,8 @@ abstract class _Breed implements Breed {
   String? get origin;
   @override
   String get imageUrl;
+  @override
+  bool get isFavorite;
   @override
   @JsonKey(ignore: true)
   _$$_BreedCopyWith<_$_Breed> get copyWith =>

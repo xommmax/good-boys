@@ -19,6 +19,7 @@ class Breed with _$Breed {
     required String? temperament,
     required String? origin,
     required String imageUrl,
+    required bool isFavorite,
   }) = _Breed;
 
   factory Breed.fromJson(Map<String, dynamic> json) => _$BreedFromJson(json);
@@ -34,5 +35,6 @@ class Breed with _$Breed {
         temperament: breed.temperament,
         origin: breed.origin,
         imageUrl: breed.imageUrl,
+        isFavorite: breed.isFavorite,
       );
 }

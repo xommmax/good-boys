@@ -5,7 +5,7 @@ import 'package:breed_repository/breed_repository.dart' hide Breed;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_demo_app/features/breed/cubit/breed_list_cubit.dart';
-import 'package:flutter_demo_app/features/breed/view/breed_list_screen.dart';
+import 'package:flutter_demo_app/features/breed/view/breed_list/breed_list_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

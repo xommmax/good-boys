@@ -1,8 +1,9 @@
 import 'package:breed_repository/breed_repository.dart' show BreedRepository;
 import 'package:flutter/material.dart';
+import 'package:flutter_demo_app/common/ext/context_ext.dart';
 import 'package:flutter_demo_app/features/breed/cubit/breed_list_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:go_router/go_router.dart';
 
 import 'breed_list_item.dart';
 
@@ -14,7 +15,7 @@ class BreedListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => BreedListCubit(context.read<BreedRepository>())..fetchInitialPage(),
+      create: (context) => BreedListCubit(context.read<BreedRepository>()),
       child: const BreedListView(),
     );
   }
@@ -39,7 +40,7 @@ class BreedListView extends StatelessWidget {
         listener: (context, state) {
           if (state.status == BreedListStatus.failure) {
             ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text(L10n.of(context).commonError)));
+                .showSnackBar(SnackBar(content: Text(context.l10n.commonError)));
           }
         },
       ),

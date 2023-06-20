@@ -1,6 +1,5 @@
 import 'package:breed_repository/breed_repository.dart' show BreedRepository;
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:favorites_repository/favorites_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_demo_app/features/breed/cubit/breed_details_cubit.dart';
@@ -20,7 +19,6 @@ class BreedDetailsScreen extends StatelessWidget {
       create: (context) => BreedDetailsCubit(
         breed,
         context.read<BreedRepository>(),
-        context.read<FavoritesRepository>(),
       ),
       child: BreedDetailsView(breed),
     );

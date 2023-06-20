@@ -8,7 +8,9 @@ part 'breed_list_state.dart';
 part 'breed_list_cubit.freezed.dart';
 
 class BreedListCubit extends Cubit<BreedListState> {
-  BreedListCubit(this._breedRepository) : super(const BreedListState());
+  BreedListCubit(this._breedRepository) : super(const BreedListState()) {
+    fetchInitialPage();
+  }
 
   final BreedRepository _breedRepository;
 

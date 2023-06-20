@@ -21,6 +21,7 @@ _$_Breed _$$_BreedFromJson(Map<String, dynamic> json) => $checkedCreate(
           temperament: $checkedConvert('temperament', (v) => v as String?),
           origin: $checkedConvert('origin', (v) => v as String?),
           imageUrl: $checkedConvert('image_url', (v) => v as String),
+          isFavorite: $checkedConvert('is_favorite', (v) => v as bool),
         );
         return val;
       },
@@ -28,7 +29,8 @@ _$_Breed _$$_BreedFromJson(Map<String, dynamic> json) => $checkedCreate(
         'bredFor': 'bred_for',
         'breedGroup': 'breed_group',
         'lifeSpan': 'life_span',
-        'imageUrl': 'image_url'
+        'imageUrl': 'image_url',
+        'isFavorite': 'is_favorite'
       },
     );
 
@@ -43,4 +45,5 @@ Map<String, dynamic> _$$_BreedToJson(_$_Breed instance) => <String, dynamic>{
       'temperament': instance.temperament,
       'origin': instance.origin,
       'image_url': instance.imageUrl,
+      'is_favorite': instance.isFavorite,
     };

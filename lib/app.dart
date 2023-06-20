@@ -1,5 +1,4 @@
 import 'package:breed_repository/breed_repository.dart';
-import 'package:favorites_repository/favorites_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,7 +13,6 @@ class BreedApp extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider(create: (context) => BreedRepository()),
-        RepositoryProvider(create: (context) => FavoritesRepository()),
       ],
       child: const BreedAppView(),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo_app/common/ext/context_ext.dart';
 import 'package:flutter_demo_app/features/breed/models/breed/breed.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
 
 class BreedDetailsList extends StatelessWidget {
   const BreedDetailsList(this.breed, {super.key});
@@ -9,7 +9,7 @@ class BreedDetailsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = L10n.of(context);
+    final l10n = context.l10n;
     return SliverList.list(
       children: [
         if (breed.weight != null) _ListItem(l10n.weight, '${breed.weight} ${l10n.kg}'),
