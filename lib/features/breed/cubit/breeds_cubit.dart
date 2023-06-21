@@ -4,11 +4,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../models/breed/breed.dart';
 
-part 'breed_list_state.dart';
-part 'breed_list_cubit.freezed.dart';
+part 'breeds_state.dart';
+part 'breeds_cubit.freezed.dart';
 
-class BreedListCubit extends Cubit<BreedListState> {
-  BreedListCubit(this._breedRepository) : super(const BreedListState()) {
+class BreedsCubit extends Cubit<BreedsState> {
+  BreedsCubit(this._breedRepository) : super(const BreedsState()) {
     fetchInitialPage();
   }
 
@@ -17,8 +17,8 @@ class BreedListCubit extends Cubit<BreedListState> {
   Future<void> fetchInitialPage() => fetchPage(page: 0);
 
   Future<void> fetchNextPage() async {
-    if (state.status == BreedListStatus.fetchMore || !state.hasMore) return;
-    emit(state.copyWith(status: BreedListStatus.fetchMore));
+    if (state.status == BreedsStatus.fetchMore || !state.hasMore) return;
+    emit(state.copyWith(status: BreedsStatus.fetchMore));
     return fetchPage(page: state.page + 1);
   }
 
@@ -27,13 +27,23 @@ class BreedListCubit extends Cubit<BreedListState> {
       final breeds =
           (await _breedRepository.getBreeds(page: page)).map((b) => Breed.fromRepo(b)).toList();
       emit(state.copyWith(
-        status: BreedListStatus.success,
+        status: BreedsStatus.success,
         breeds: state.breeds + breeds,
         hasMore: breeds.isNotEmpty,
         page: page,
       ));
     } on Exception {
-      emit(state.copyWith(status: BreedListStatus.failure));
+      emit(state.copyWith(status: BreedsStatus.failure));
     }
+  }
+
+  void switchViewType() {
+    final BreedsViewType newViewType;
+    if (state.viewType == BreedsViewType.list) {
+      newViewType = BreedsViewType.grid;
+    } else {
+      newViewType = BreedsViewType.list;
+    }
+    emit(state.copyWith(viewType: newViewType));
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter_demo_app/features/breed/view/breed_details/breed_details_screen.dart';
-import 'package:flutter_demo_app/features/breed/view/breed_list/breed_list_screen.dart';
+import 'package:flutter_demo_app/features/breed/view/breeds/breeds_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/breed/models/breed/breed.dart';
@@ -19,7 +19,7 @@ class AppRouter extends GoRouter {
   AppRouter._internal()
       // AppRouter()
       : super(
-          initialLocation: '/breedList',
+          initialLocation: '/breeds',
           debugLogDiagnostics: true,
           routes: [
             StatefulShellRoute.indexedStack(
@@ -30,8 +30,8 @@ class AppRouter extends GoRouter {
                 StatefulShellBranch(
                   routes: [
                     GoRoute(
-                      path: '/breedList',
-                      builder: (context, state) => const BreedListScreen(),
+                      path: '/breeds',
+                      builder: (context, state) => const BreedsScreen(),
                       routes: [
                         GoRoute(
                           path: 'breedDetails',

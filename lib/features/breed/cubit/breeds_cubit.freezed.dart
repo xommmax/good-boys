@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'breed_list_cubit.dart';
+part of 'breeds_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,31 +15,36 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$BreedListState {
+mixin _$BreedsState {
   List<Breed> get breeds => throw _privateConstructorUsedError;
-  BreedListStatus get status => throw _privateConstructorUsedError;
+  BreedsStatus get status => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
   bool get hasMore => throw _privateConstructorUsedError;
+  BreedsViewType get viewType => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $BreedListStateCopyWith<BreedListState> get copyWith =>
+  $BreedsStateCopyWith<BreedsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $BreedListStateCopyWith<$Res> {
-  factory $BreedListStateCopyWith(
-          BreedListState value, $Res Function(BreedListState) then) =
-      _$BreedListStateCopyWithImpl<$Res, BreedListState>;
+abstract class $BreedsStateCopyWith<$Res> {
+  factory $BreedsStateCopyWith(
+          BreedsState value, $Res Function(BreedsState) then) =
+      _$BreedsStateCopyWithImpl<$Res, BreedsState>;
   @useResult
   $Res call(
-      {List<Breed> breeds, BreedListStatus status, int page, bool hasMore});
+      {List<Breed> breeds,
+      BreedsStatus status,
+      int page,
+      bool hasMore,
+      BreedsViewType viewType});
 }
 
 /// @nodoc
-class _$BreedListStateCopyWithImpl<$Res, $Val extends BreedListState>
-    implements $BreedListStateCopyWith<$Res> {
-  _$BreedListStateCopyWithImpl(this._value, this._then);
+class _$BreedsStateCopyWithImpl<$Res, $Val extends BreedsState>
+    implements $BreedsStateCopyWith<$Res> {
+  _$BreedsStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -53,6 +58,7 @@ class _$BreedListStateCopyWithImpl<$Res, $Val extends BreedListState>
     Object? status = null,
     Object? page = null,
     Object? hasMore = null,
+    Object? viewType = null,
   }) {
     return _then(_value.copyWith(
       breeds: null == breeds
@@ -62,7 +68,7 @@ class _$BreedListStateCopyWithImpl<$Res, $Val extends BreedListState>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as BreedListStatus,
+              as BreedsStatus,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -71,28 +77,36 @@ class _$BreedListStateCopyWithImpl<$Res, $Val extends BreedListState>
           ? _value.hasMore
           : hasMore // ignore: cast_nullable_to_non_nullable
               as bool,
+      viewType: null == viewType
+          ? _value.viewType
+          : viewType // ignore: cast_nullable_to_non_nullable
+              as BreedsViewType,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_BreedListStateCopyWith<$Res>
-    implements $BreedListStateCopyWith<$Res> {
-  factory _$$_BreedListStateCopyWith(
-          _$_BreedListState value, $Res Function(_$_BreedListState) then) =
-      __$$_BreedListStateCopyWithImpl<$Res>;
+abstract class _$$_BreedsStateCopyWith<$Res>
+    implements $BreedsStateCopyWith<$Res> {
+  factory _$$_BreedsStateCopyWith(
+          _$_BreedsState value, $Res Function(_$_BreedsState) then) =
+      __$$_BreedsStateCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {List<Breed> breeds, BreedListStatus status, int page, bool hasMore});
+      {List<Breed> breeds,
+      BreedsStatus status,
+      int page,
+      bool hasMore,
+      BreedsViewType viewType});
 }
 
 /// @nodoc
-class __$$_BreedListStateCopyWithImpl<$Res>
-    extends _$BreedListStateCopyWithImpl<$Res, _$_BreedListState>
-    implements _$$_BreedListStateCopyWith<$Res> {
-  __$$_BreedListStateCopyWithImpl(
-      _$_BreedListState _value, $Res Function(_$_BreedListState) _then)
+class __$$_BreedsStateCopyWithImpl<$Res>
+    extends _$BreedsStateCopyWithImpl<$Res, _$_BreedsState>
+    implements _$$_BreedsStateCopyWith<$Res> {
+  __$$_BreedsStateCopyWithImpl(
+      _$_BreedsState _value, $Res Function(_$_BreedsState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -102,8 +116,9 @@ class __$$_BreedListStateCopyWithImpl<$Res>
     Object? status = null,
     Object? page = null,
     Object? hasMore = null,
+    Object? viewType = null,
   }) {
-    return _then(_$_BreedListState(
+    return _then(_$_BreedsState(
       breeds: null == breeds
           ? _value._breeds
           : breeds // ignore: cast_nullable_to_non_nullable
@@ -111,7 +126,7 @@ class __$$_BreedListStateCopyWithImpl<$Res>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as BreedListStatus,
+              as BreedsStatus,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -120,18 +135,23 @@ class __$$_BreedListStateCopyWithImpl<$Res>
           ? _value.hasMore
           : hasMore // ignore: cast_nullable_to_non_nullable
               as bool,
+      viewType: null == viewType
+          ? _value.viewType
+          : viewType // ignore: cast_nullable_to_non_nullable
+              as BreedsViewType,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_BreedListState implements _BreedListState {
-  const _$_BreedListState(
+class _$_BreedsState implements _BreedsState {
+  const _$_BreedsState(
       {final List<Breed> breeds = const [],
-      this.status = BreedListStatus.initial,
+      this.status = BreedsStatus.initial,
       this.page = 0,
-      this.hasMore = true})
+      this.hasMore = true,
+      this.viewType = BreedsViewType.list})
       : _breeds = breeds;
 
   final List<Breed> _breeds;
@@ -145,58 +165,71 @@ class _$_BreedListState implements _BreedListState {
 
   @override
   @JsonKey()
-  final BreedListStatus status;
+  final BreedsStatus status;
   @override
   @JsonKey()
   final int page;
   @override
   @JsonKey()
   final bool hasMore;
+  @override
+  @JsonKey()
+  final BreedsViewType viewType;
 
   @override
   String toString() {
-    return 'BreedListState(breeds: $breeds, status: $status, page: $page, hasMore: $hasMore)';
+    return 'BreedsState(breeds: $breeds, status: $status, page: $page, hasMore: $hasMore, viewType: $viewType)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BreedListState &&
+            other is _$_BreedsState &&
             const DeepCollectionEquality().equals(other._breeds, _breeds) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.page, page) || other.page == page) &&
-            (identical(other.hasMore, hasMore) || other.hasMore == hasMore));
+            (identical(other.hasMore, hasMore) || other.hasMore == hasMore) &&
+            (identical(other.viewType, viewType) ||
+                other.viewType == viewType));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_breeds), status, page, hasMore);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_breeds),
+      status,
+      page,
+      hasMore,
+      viewType);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BreedListStateCopyWith<_$_BreedListState> get copyWith =>
-      __$$_BreedListStateCopyWithImpl<_$_BreedListState>(this, _$identity);
+  _$$_BreedsStateCopyWith<_$_BreedsState> get copyWith =>
+      __$$_BreedsStateCopyWithImpl<_$_BreedsState>(this, _$identity);
 }
 
-abstract class _BreedListState implements BreedListState {
-  const factory _BreedListState(
+abstract class _BreedsState implements BreedsState {
+  const factory _BreedsState(
       {final List<Breed> breeds,
-      final BreedListStatus status,
+      final BreedsStatus status,
       final int page,
-      final bool hasMore}) = _$_BreedListState;
+      final bool hasMore,
+      final BreedsViewType viewType}) = _$_BreedsState;
 
   @override
   List<Breed> get breeds;
   @override
-  BreedListStatus get status;
+  BreedsStatus get status;
   @override
   int get page;
   @override
   bool get hasMore;
   @override
+  BreedsViewType get viewType;
+  @override
   @JsonKey(ignore: true)
-  _$$_BreedListStateCopyWith<_$_BreedListState> get copyWith =>
+  _$$_BreedsStateCopyWith<_$_BreedsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
