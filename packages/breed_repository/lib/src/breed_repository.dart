@@ -10,7 +10,7 @@ class BreedRepository {
   final DogApiClient _dogApiClient;
   final LocalStorage _localStorage;
 
-  Future<List<Breed>> getBreeds({int page = 0, int limit = 10}) async {
+  Future<List<Breed>> getBreeds({int page = 0, int limit = 20}) async {
     final apiBreeds = await _dogApiClient.getBreeds(page: page, limit: limit);
     final domainBreeds = apiBreeds.map((b) => Breed.fromApi(b)).toList();
     final dbBreeds = domainBreeds.map((b) => b.toDb()).toList();
@@ -39,4 +39,13 @@ class BreedRepository {
 
   Stream<List<Breed>> listenFavorites() =>
       _localStorage.listenFavorites().map((list) => list.map((e) => Breed.fromDb(e)).toList());
+
+  Future<List<Breed>> search(String query) async {
+    final apiBreeds = await _dogApiClient.search(query);
+    final domainBreeds = apiBreeds.map((b) => Breed.fromApi(b)).toList();
+    final dbBreeds = domainBreeds.map((b) => b.toDb()).toList();
+
+    _localStorage.putBreeds(dbBreeds);
+    return domainBreeds;
+  }
 }

@@ -59,7 +59,12 @@ class BreedDetailsView extends StatelessWidget {
                     tag: 'breed_image_${breed.id}',
                     child: BreedImageSlider(
                       children: state.imageUrls
-                          .map((url) => CachedNetworkImage(imageUrl: url, fit: BoxFit.cover))
+                          .map((url) => CachedNetworkImage(
+                                imageUrl: url,
+                                fit: BoxFit.cover,
+                                errorWidget: (context, url, error) =>
+                                    const Center(child: Text('No image')),
+                              ))
                           .toList(),
                     ),
                   ),

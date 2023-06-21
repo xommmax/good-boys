@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/breed/models/breed/breed.dart';
 import '../../features/favorites/view/favorites_list_screen.dart';
-import '../../features/search/view/search.dart';
+import '../../features/search/view/search_screen.dart';
 import '../view/scaffold_with_nav_bar.dart';
 
 // GoRouter configuration
@@ -47,6 +47,13 @@ class AppRouter extends GoRouter {
                     GoRoute(
                       path: '/search',
                       builder: (context, state) => const SearchScreen(),
+                      routes: [
+                        GoRoute(
+                          path: 'breedDetails',
+                          builder: (context, state) =>
+                              BreedDetailsScreen(breed: state.extra as Breed),
+                        )
+                      ],
                     ),
                   ],
                 ),

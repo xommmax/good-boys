@@ -1,6 +1,6 @@
 part of 'breed_list_cubit.dart';
 
-enum BreedListStatus { initial, loading, success, failure }
+enum BreedListStatus { initial, fetchMore, success, failure }
 
 @freezed
 class BreedListState with _$BreedListState {

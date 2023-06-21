@@ -26,6 +26,7 @@ class BreedListItem extends StatelessWidget {
                     imageUrl: breed.imageUrl,
                     fit: BoxFit.cover,
                     alignment: Alignment.topCenter,
+                    errorWidget: (context, url, error) => const Center(child: Text('No image')),
                   ),
                 ),
               ),

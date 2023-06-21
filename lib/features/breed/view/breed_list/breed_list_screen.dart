@@ -32,7 +32,7 @@ class BreedListView extends StatelessWidget {
         builder: (context, state) {
           switch (state.status) {
             case BreedListStatus.initial:
-              return const BreedListEmpty();
+              return const BreedListLoading();
             default:
               return const BreedListPopulated();
           }

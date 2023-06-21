@@ -17,15 +17,12 @@ class BreedListCubit extends Cubit<BreedListState> {
   Future<void> fetchInitialPage() => fetchPage(page: 0);
 
   Future<void> fetchNextPage() async {
-    if (state.status == BreedListStatus.loading || !state.hasMore) return;
+    if (state.status == BreedListStatus.fetchMore || !state.hasMore) return;
+    emit(state.copyWith(status: BreedListStatus.fetchMore));
     return fetchPage(page: state.page + 1);
   }
 
   Future<void> fetchPage({int page = 0}) async {
-    if (page < 0) return;
-
-    emit(state.copyWith(status: BreedListStatus.loading));
-
     try {
       final breeds =
           (await _breedRepository.getBreeds(page: page)).map((b) => Breed.fromRepo(b)).toList();

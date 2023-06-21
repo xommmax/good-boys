@@ -22,5 +22,8 @@
   "cm": "cm",
   "@cm": {
     "description": "centimeter"
-  }
+  },
+  "noSearchResults": "No search results",
+  "noFavoritesTitle": "No favorites yet",
+  "noFavoritesSubtitle": "You can add breed to your favorites by clicking star button on breed page"
 }

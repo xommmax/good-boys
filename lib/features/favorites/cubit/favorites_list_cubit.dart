@@ -21,8 +21,8 @@ class FavoritesListCubit extends Cubit<FavoritesListState> {
   }
 
   Future<void> _getFavorites() async {
-    final favList = await _breedRepository.getFavorites();
-    final breeds = favList.map((e) => Breed.fromRepo(e)).toList();
+    final result = await _breedRepository.getFavorites();
+    final breeds = result.map((e) => Breed.fromRepo(e)).toList();
     emit(state.copyWith(breeds: breeds));
   }
 

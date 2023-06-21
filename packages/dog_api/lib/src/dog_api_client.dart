@@ -32,6 +32,25 @@ class DogApiClient {
     return breedsJson.map((e) => Breed.fromJson(e)).toList();
   }
 
+  Future<List<Breed>> search(String query) async {
+    final response = await _dioClient.get('/breeds/search', queryParameters: {
+      'q': query,
+    });
+
+    if (response.statusCode != 200) {
+      throw BreedRequestFailure();
+    }
+
+    final breedsJson = response.data as List;
+
+    return breedsJson.map((e) {
+      if (e['image'] == null) {
+        e['image'] = {'url': 'https://cdn2.thedogapi.com/images/${e["reference_image_id"]}.jpg'};
+      }
+      return Breed.fromJson(e);
+    }).toList();
+  }
+
   Future<List<String>> getBreedImages(int breedId) async {
     final response = await _dioClient.get(
       '/images/search',

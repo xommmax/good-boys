@@ -1,7 +1,7 @@
 part of 'breed_list_screen.dart';
 
-class BreedListEmpty extends StatelessWidget {
-  const BreedListEmpty({super.key});
+class BreedListLoading extends StatelessWidget {
+  const BreedListLoading({super.key});
 
   @override
   Widget build(BuildContext context) => const Center(child: CircularProgressIndicator());
@@ -40,31 +40,24 @@ class _BreedListPopulatedState extends State<BreedListPopulated> {
   @override
   Widget build(BuildContext context) => BlocBuilder<BreedListCubit, BreedListState>(
         builder: (context, state) {
-          return Stack(
-            children: [
-              ListView.separated(
-                key: const PageStorageKey('breedListKey'),
-                controller: _scrollController,
-                itemCount: state.breeds.length,
-                itemBuilder: (_, index) => BreedListItem(
-                  breed: state.breeds[index],
-                  callback: () => context.go('/breedList/breedDetails', extra: state.breeds[index]),
-                ),
-                separatorBuilder: (_, index) => Divider(
-                  height: 24,
-                  color: Colors.black.withAlpha(40),
-                ),
-                padding: const EdgeInsets.fromLTRB(16, 24, 16, 48),
-              ),
-              if (state.status == BreedListStatus.loading)
-                const Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8),
-                    child: CircularProgressIndicator(),
+          return ListView.separated(
+            key: const PageStorageKey('breedListKey'),
+            controller: _scrollController,
+            itemCount: state.status == BreedListStatus.fetchMore
+                ? state.breeds.length + 1
+                : state.breeds.length,
+            itemBuilder: (_, index) => index == state.breeds.length
+                ? const Center(child: CircularProgressIndicator())
+                : BreedListItem(
+                    breed: state.breeds[index],
+                    callback: () =>
+                        context.go('/breedList/breedDetails', extra: state.breeds[index]),
                   ),
-                ),
-            ],
+            separatorBuilder: (_, index) => Divider(
+              height: 24,
+              color: Colors.black.withAlpha(40),
+            ),
+            padding: const EdgeInsets.fromLTRB(16, 24, 16, 48),
           );
         },
       );
