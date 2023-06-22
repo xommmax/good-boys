@@ -69,4 +69,21 @@ class DogApiClient {
 
     return imagesJson.map((e) => e['url'] as String).toList();
   }
+
+  Future<List<String>> getRandomImages({int? limit = 10}) async {
+    final response = await _dioClient.get(
+      '/images/search',
+      queryParameters: {
+        'limit': limit,
+        'size': 'full',
+      },
+    );
+    if (response.statusCode != 200) {
+      throw BreedRequestFailure();
+    }
+
+    final imagesJson = response.data as List;
+
+    return imagesJson.map((e) => e['url'] as String).toList();
+  }
 }

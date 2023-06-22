@@ -19,6 +19,8 @@ class BreedRepository {
     return domainBreeds;
   }
 
+  Future<List<String>> getRandomImages({int? limit}) => _dogApiClient.getRandomImages(limit: limit);
+
   Future<List<String>> getBreedImages(int breedId) async =>
       (await _dogApiClient.getBreedImages(breedId))
           .map((url) => url.replaceAll('_1280', ''))

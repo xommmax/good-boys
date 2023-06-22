@@ -22,7 +22,7 @@ _$_Breed _$$_BreedFromJson(Map<String, dynamic> json) => $checkedCreate(
           origin: $checkedConvert('origin', (v) => v as String?),
           referenceImageId:
               $checkedConvert('reference_image_id', (v) => v as String?),
-          image: $checkedConvert('image', (v) => v as Map<String, dynamic>),
+          image: $checkedConvert('image', (v) => v as Map<String, dynamic>?),
         );
         return val;
       },

@@ -30,7 +30,7 @@ mixin _$Breed {
   String? get temperament => throw _privateConstructorUsedError;
   String? get origin => throw _privateConstructorUsedError;
   String? get referenceImageId => throw _privateConstructorUsedError;
-  Map<dynamic, dynamic> get image => throw _privateConstructorUsedError;
+  Map<dynamic, dynamic>? get image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +53,7 @@ abstract class $BreedCopyWith<$Res> {
       String? temperament,
       String? origin,
       String? referenceImageId,
-      Map<dynamic, dynamic> image});
+      Map<dynamic, dynamic>? image});
 }
 
 /// @nodoc
@@ -79,7 +79,7 @@ class _$BreedCopyWithImpl<$Res, $Val extends Breed>
     Object? temperament = freezed,
     Object? origin = freezed,
     Object? referenceImageId = freezed,
-    Object? image = null,
+    Object? image = freezed,
   }) {
     return _then(_value.copyWith(
       weight: freezed == weight
@@ -122,10 +122,10 @@ class _$BreedCopyWithImpl<$Res, $Val extends Breed>
           ? _value.referenceImageId
           : referenceImageId // ignore: cast_nullable_to_non_nullable
               as String?,
-      image: null == image
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as Map<dynamic, dynamic>,
+              as Map<dynamic, dynamic>?,
     ) as $Val);
   }
 }
@@ -147,7 +147,7 @@ abstract class _$$_BreedCopyWith<$Res> implements $BreedCopyWith<$Res> {
       String? temperament,
       String? origin,
       String? referenceImageId,
-      Map<dynamic, dynamic> image});
+      Map<dynamic, dynamic>? image});
 }
 
 /// @nodoc
@@ -169,7 +169,7 @@ class __$$_BreedCopyWithImpl<$Res> extends _$BreedCopyWithImpl<$Res, _$_Breed>
     Object? temperament = freezed,
     Object? origin = freezed,
     Object? referenceImageId = freezed,
-    Object? image = null,
+    Object? image = freezed,
   }) {
     return _then(_$_Breed(
       weight: freezed == weight
@@ -212,10 +212,10 @@ class __$$_BreedCopyWithImpl<$Res> extends _$BreedCopyWithImpl<$Res, _$_Breed>
           ? _value.referenceImageId
           : referenceImageId // ignore: cast_nullable_to_non_nullable
               as String?,
-      image: null == image
+      image: freezed == image
           ? _value._image
           : image // ignore: cast_nullable_to_non_nullable
-              as Map<dynamic, dynamic>,
+              as Map<dynamic, dynamic>?,
     ));
   }
 }
@@ -234,7 +234,7 @@ class _$_Breed implements _Breed {
       required this.temperament,
       required this.origin,
       required this.referenceImageId,
-      required final Map<dynamic, dynamic> image})
+      required final Map<dynamic, dynamic>? image})
       : _weight = weight,
         _height = height,
         _image = image;
@@ -278,12 +278,14 @@ class _$_Breed implements _Breed {
   final String? origin;
   @override
   final String? referenceImageId;
-  final Map<dynamic, dynamic> _image;
+  final Map<dynamic, dynamic>? _image;
   @override
-  Map<dynamic, dynamic> get image {
+  Map<dynamic, dynamic>? get image {
+    final value = _image;
+    if (value == null) return null;
     if (_image is EqualUnmodifiableMapView) return _image;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_image);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -355,7 +357,7 @@ abstract class _Breed implements Breed {
       required final String? temperament,
       required final String? origin,
       required final String? referenceImageId,
-      required final Map<dynamic, dynamic> image}) = _$_Breed;
+      required final Map<dynamic, dynamic>? image}) = _$_Breed;
 
   factory _Breed.fromJson(Map<String, dynamic> json) = _$_Breed.fromJson;
 
@@ -380,7 +382,7 @@ abstract class _Breed implements Breed {
   @override
   String? get referenceImageId;
   @override
-  Map<dynamic, dynamic> get image;
+  Map<dynamic, dynamic>? get image;
   @override
   @JsonKey(ignore: true)
   _$$_BreedCopyWith<_$_Breed> get copyWith =>

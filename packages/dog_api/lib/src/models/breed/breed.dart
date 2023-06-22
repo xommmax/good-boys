@@ -18,7 +18,7 @@ class Breed with _$Breed {
     required String? temperament,
     required String? origin,
     required String? referenceImageId,
-    required Map image,
+    required Map? image,
   }) = _Breed;
 
   factory Breed.fromJson(Map<String, dynamic> json) => _$BreedFromJson(json);

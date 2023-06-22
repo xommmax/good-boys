@@ -37,7 +37,7 @@ class Breed with _$Breed {
         lifeSpan: breed.lifeSpan,
         temperament: breed.temperament,
         origin: breed.origin,
-        imageUrl: breed.image['url'],
+        imageUrl: breed.image?['url'],
         isFavorite: false,
       );
 
