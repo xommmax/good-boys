@@ -37,33 +37,28 @@ const BreedSchema = CollectionSchema(
       name: r'imageUrl',
       type: IsarType.string,
     ),
-    r'isFavorite': PropertySchema(
-      id: 4,
-      name: r'isFavorite',
-      type: IsarType.bool,
-    ),
     r'lifeSpan': PropertySchema(
-      id: 5,
+      id: 4,
       name: r'lifeSpan',
       type: IsarType.string,
     ),
     r'name': PropertySchema(
-      id: 6,
+      id: 5,
       name: r'name',
       type: IsarType.string,
     ),
     r'origin': PropertySchema(
-      id: 7,
+      id: 6,
       name: r'origin',
       type: IsarType.string,
     ),
     r'temperament': PropertySchema(
-      id: 8,
+      id: 7,
       name: r'temperament',
       type: IsarType.string,
     ),
     r'weight': PropertySchema(
-      id: 9,
+      id: 8,
       name: r'weight',
       type: IsarType.string,
     )
@@ -145,12 +140,11 @@ void _breedSerialize(
   writer.writeString(offsets[1], object.breedGroup);
   writer.writeString(offsets[2], object.height);
   writer.writeString(offsets[3], object.imageUrl);
-  writer.writeBool(offsets[4], object.isFavorite);
-  writer.writeString(offsets[5], object.lifeSpan);
-  writer.writeString(offsets[6], object.name);
-  writer.writeString(offsets[7], object.origin);
-  writer.writeString(offsets[8], object.temperament);
-  writer.writeString(offsets[9], object.weight);
+  writer.writeString(offsets[4], object.lifeSpan);
+  writer.writeString(offsets[5], object.name);
+  writer.writeString(offsets[6], object.origin);
+  writer.writeString(offsets[7], object.temperament);
+  writer.writeString(offsets[8], object.weight);
 }
 
 Breed _breedDeserialize(
@@ -165,12 +159,11 @@ Breed _breedDeserialize(
   object.height = reader.readStringOrNull(offsets[2]);
   object.id = id;
   object.imageUrl = reader.readString(offsets[3]);
-  object.isFavorite = reader.readBoolOrNull(offsets[4]);
-  object.lifeSpan = reader.readStringOrNull(offsets[5]);
-  object.name = reader.readString(offsets[6]);
-  object.origin = reader.readStringOrNull(offsets[7]);
-  object.temperament = reader.readStringOrNull(offsets[8]);
-  object.weight = reader.readStringOrNull(offsets[9]);
+  object.lifeSpan = reader.readStringOrNull(offsets[4]);
+  object.name = reader.readString(offsets[5]);
+  object.origin = reader.readStringOrNull(offsets[6]);
+  object.temperament = reader.readStringOrNull(offsets[7]);
+  object.weight = reader.readStringOrNull(offsets[8]);
   return object;
 }
 
@@ -190,16 +183,14 @@ P _breedDeserializeProp<P>(
     case 3:
       return (reader.readString(offset)) as P;
     case 4:
-      return (reader.readBoolOrNull(offset)) as P;
-    case 5:
       return (reader.readStringOrNull(offset)) as P;
-    case 6:
+    case 5:
       return (reader.readString(offset)) as P;
+    case 6:
+      return (reader.readStringOrNull(offset)) as P;
     case 7:
       return (reader.readStringOrNull(offset)) as P;
     case 8:
-      return (reader.readStringOrNull(offset)) as P;
-    case 9:
       return (reader.readStringOrNull(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -909,32 +900,6 @@ extension BreedQueryFilter on QueryBuilder<Breed, Breed, QFilterCondition> {
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'imageUrl',
         value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<Breed, Breed, QAfterFilterCondition> isFavoriteIsNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'isFavorite',
-      ));
-    });
-  }
-
-  QueryBuilder<Breed, Breed, QAfterFilterCondition> isFavoriteIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'isFavorite',
-      ));
-    });
-  }
-
-  QueryBuilder<Breed, Breed, QAfterFilterCondition> isFavoriteEqualTo(
-      bool? value) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'isFavorite',
-        value: value,
       ));
     });
   }
@@ -1703,18 +1668,6 @@ extension BreedQuerySortBy on QueryBuilder<Breed, Breed, QSortBy> {
     });
   }
 
-  QueryBuilder<Breed, Breed, QAfterSortBy> sortByIsFavorite() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isFavorite', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Breed, Breed, QAfterSortBy> sortByIsFavoriteDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isFavorite', Sort.desc);
-    });
-  }
-
   QueryBuilder<Breed, Breed, QAfterSortBy> sortByLifeSpan() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'lifeSpan', Sort.asc);
@@ -1837,18 +1790,6 @@ extension BreedQuerySortThenBy on QueryBuilder<Breed, Breed, QSortThenBy> {
     });
   }
 
-  QueryBuilder<Breed, Breed, QAfterSortBy> thenByIsFavorite() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isFavorite', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Breed, Breed, QAfterSortBy> thenByIsFavoriteDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isFavorite', Sort.desc);
-    });
-  }
-
   QueryBuilder<Breed, Breed, QAfterSortBy> thenByLifeSpan() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'lifeSpan', Sort.asc);
@@ -1939,12 +1880,6 @@ extension BreedQueryWhereDistinct on QueryBuilder<Breed, Breed, QDistinct> {
     });
   }
 
-  QueryBuilder<Breed, Breed, QDistinct> distinctByIsFavorite() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'isFavorite');
-    });
-  }
-
   QueryBuilder<Breed, Breed, QDistinct> distinctByLifeSpan(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
@@ -2009,12 +1944,6 @@ extension BreedQueryProperty on QueryBuilder<Breed, Breed, QQueryProperty> {
   QueryBuilder<Breed, String, QQueryOperations> imageUrlProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'imageUrl');
-    });
-  }
-
-  QueryBuilder<Breed, bool?, QQueryOperations> isFavoriteProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'isFavorite');
     });
   }
 

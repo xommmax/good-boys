@@ -14,5 +14,4 @@ class Breed {
   String? lifeSpan;
   String? temperament;
   String? origin;
-  bool? isFavorite;
 }

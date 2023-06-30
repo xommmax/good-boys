@@ -26,10 +26,7 @@ class BreedRepository {
           .map((url) => url.replaceAll('_1280', ''))
           .toList();
 
-  Future<bool> isFavorite(int breedId) async {
-    final breed = await _localStorage.getBreed(breedId);
-    return breed?.isFavorite ?? false;
-  }
+  Future<bool> isFavorite(int breedId) => _localStorage.isFavorite(breedId);
 
   Future<void> setFavorite(int breedId, bool isFavorite) =>
       _localStorage.setFavorite(breedId, isFavorite);

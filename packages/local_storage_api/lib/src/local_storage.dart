@@ -7,6 +7,8 @@ abstract class LocalStorage {
 
   Future<void> setFavorite(int breedId, bool isFavorite);
 
+  Future<bool> isFavorite(int breedId);
+
   Future<List<Breed>> getFavorites();
 
   Stream<List<Breed>> listenFavorites();
