@@ -6,6 +6,7 @@ part 'breed.g.dart';
 class Breed {
   late Id id;
   late String name;
+  late String imageUrl;
   String? weight;
   String? height;
   String? bredFor;
@@ -13,6 +14,5 @@ class Breed {
   String? lifeSpan;
   String? temperament;
   String? origin;
-  late String imageUrl;
-  late bool isFavorite;
+  bool? isFavorite;
 }

@@ -7,12 +7,6 @@ import 'package:swipable_stack/swipable_stack.dart';
 
 import 'bottom_buttons_row.dart';
 
-const _images = [
-  'https://cdn2.thedogapi.com/images/SyeodOnBQ_390x256.jpg',
-  'https://cdn2.thedogapi.com/images/pC7MjGeaT.jpg',
-  'https://cdn2.thedogapi.com/images/aQkrp7YWk.jpg',
-];
-
 class SwipeableView extends StatefulWidget {
   const SwipeableView({super.key});
 
@@ -55,7 +49,6 @@ class SwipeableViewState extends State<SwipeableView> {
                   },
                   controller: _controller,
                   onSwipeCompleted: (index, direction) {
-                    print('onSwipeCompleted $index');
                     if (index % 10 == 0 && index != 0) {
                       context.read<YayNayCubit>().loadRandomBreeds();
                     }

@@ -4,7 +4,9 @@ import 'package:flutter_demo_app/features/breed/models/breed/breed.dart';
 import 'package:flutter_demo_app/features/search/cubit/search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
-  SearchCubit(this._breedRepository) : super(const SearchState(status: SearchStatus.initial));
+  SearchCubit({required BreedRepository breedRepository})
+      : _breedRepository = breedRepository,
+        super(const SearchState(status: SearchStatus.initial));
 
   final BreedRepository _breedRepository;
 

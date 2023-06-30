@@ -1,6 +1,6 @@
-import 'package:breed_repository/breed_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_demo_app/common/service_locator.dart';
 import 'package:flutter_demo_app/common/ext/context_ext.dart';
 import 'package:flutter_demo_app/features/breed/view/breeds/list/breed_list_item.dart';
 import 'package:flutter_demo_app/features/favorites/cubit/favorites_list_cubit.dart';
@@ -13,7 +13,7 @@ class FavoritesListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => FavoritesListCubit(context.read<BreedRepository>()),
+      create: (context) => getIt<FavoritesListCubit>(),
       child: const FavoritesListView(),
     );
   }

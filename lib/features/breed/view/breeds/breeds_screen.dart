@@ -1,6 +1,6 @@
-import 'package:breed_repository/breed_repository.dart' show BreedRepository;
 import 'package:flutter/material.dart';
 import 'package:flutter_demo_app/common/ext/context_ext.dart';
+import 'package:flutter_demo_app/common/service_locator.dart';
 import 'package:flutter_demo_app/features/breed/cubit/breeds_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_demo_app/features/breed/view/breeds/breeds_components.dart';
@@ -11,7 +11,7 @@ class BreedsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => BreedsCubit(context.read<BreedRepository>()),
+      create: (context) => getIt<BreedsCubit>(),
       child: const BreedsView(),
     );
   }

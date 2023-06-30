@@ -1,7 +1,7 @@
-import 'package:breed_repository/breed_repository.dart' show BreedRepository;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_demo_app/common/service_locator.dart';
 import 'package:flutter_demo_app/features/breed/cubit/breed_details_cubit.dart';
 import 'package:flutter_demo_app/features/breed/models/breed/breed.dart';
 
@@ -16,10 +16,7 @@ class BreedDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => BreedDetailsCubit(
-        breed,
-        context.read<BreedRepository>(),
-      ),
+      create: (context) => getIt<BreedDetailsCubit>(param1: breed),
       child: BreedDetailsView(breed),
     );
   }

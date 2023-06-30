@@ -165,7 +165,7 @@ Breed _breedDeserialize(
   object.height = reader.readStringOrNull(offsets[2]);
   object.id = id;
   object.imageUrl = reader.readString(offsets[3]);
-  object.isFavorite = reader.readBool(offsets[4]);
+  object.isFavorite = reader.readBoolOrNull(offsets[4]);
   object.lifeSpan = reader.readStringOrNull(offsets[5]);
   object.name = reader.readString(offsets[6]);
   object.origin = reader.readStringOrNull(offsets[7]);
@@ -190,7 +190,7 @@ P _breedDeserializeProp<P>(
     case 3:
       return (reader.readString(offset)) as P;
     case 4:
-      return (reader.readBool(offset)) as P;
+      return (reader.readBoolOrNull(offset)) as P;
     case 5:
       return (reader.readStringOrNull(offset)) as P;
     case 6:
@@ -913,8 +913,24 @@ extension BreedQueryFilter on QueryBuilder<Breed, Breed, QFilterCondition> {
     });
   }
 
+  QueryBuilder<Breed, Breed, QAfterFilterCondition> isFavoriteIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'isFavorite',
+      ));
+    });
+  }
+
+  QueryBuilder<Breed, Breed, QAfterFilterCondition> isFavoriteIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'isFavorite',
+      ));
+    });
+  }
+
   QueryBuilder<Breed, Breed, QAfterFilterCondition> isFavoriteEqualTo(
-      bool value) {
+      bool? value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'isFavorite',
@@ -1996,7 +2012,7 @@ extension BreedQueryProperty on QueryBuilder<Breed, Breed, QQueryProperty> {
     });
   }
 
-  QueryBuilder<Breed, bool, QQueryOperations> isFavoriteProperty() {
+  QueryBuilder<Breed, bool?, QQueryOperations> isFavoriteProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'isFavorite');
     });

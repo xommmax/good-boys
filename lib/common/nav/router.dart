@@ -8,17 +8,8 @@ import '../../features/favorites/view/favorites_list_screen.dart';
 import '../../features/search/view/search_screen.dart';
 import '../view/scaffold_with_nav_bar.dart';
 
-// GoRouter configuration
 class AppRouter extends GoRouter {
-  // temp router singleton for hot-reload purposes, remove later
-  static final AppRouter _singleton = AppRouter._internal();
-
-  factory AppRouter() {
-    return _singleton;
-  }
-
-  AppRouter._internal()
-      // AppRouter()
+  AppRouter()
       : super(
           initialLocation: '/breeds',
           debugLogDiagnostics: true,

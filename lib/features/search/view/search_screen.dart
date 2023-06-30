@@ -1,7 +1,7 @@
-import 'package:breed_repository/breed_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_demo_app/common/ext/context_ext.dart';
+import 'package:flutter_demo_app/common/service_locator.dart';
 import 'package:flutter_demo_app/features/search/cubit/search_cubit.dart';
 import 'package:flutter_demo_app/features/search/cubit/search_state.dart';
 import 'package:flutter_demo_app/features/search/view/search_components.dart';
@@ -13,7 +13,7 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SearchCubit(context.read<BreedRepository>()),
+      create: (context) => getIt<SearchCubit>(),
       child: const SearchView(),
     );
   }

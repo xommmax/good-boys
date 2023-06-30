@@ -1,7 +1,7 @@
-import 'package:breed_repository/breed_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_demo_app/common/ext/context_ext.dart';
+import 'package:flutter_demo_app/common/service_locator.dart';
 import 'package:flutter_demo_app/features/yaynay/cubit/yaynay_cubit.dart';
 import 'package:flutter_demo_app/features/yaynay/cubit/yaynay_state.dart';
 import 'package:flutter_demo_app/features/yaynay/view/swipeable/swipeable_view.dart';
@@ -12,7 +12,7 @@ class YayNayScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => YayNayCubit(context.read<BreedRepository>()),
+      create: (context) => getIt<YayNayCubit>(),
       child: const YayNayView(),
     );
   }

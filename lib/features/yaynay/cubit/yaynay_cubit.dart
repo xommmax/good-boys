@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_demo_app/features/yaynay/cubit/yaynay_state.dart';
 
 class YayNayCubit extends Cubit<YayNayState> {
-  YayNayCubit(this._breedRepository) : super(const YayNayState()) {
+  YayNayCubit({required BreedRepository breedRepository})
+      : _breedRepository = breedRepository,
+        super(const YayNayState()) {
     loadRandomBreeds(limit: 20);
   }
 

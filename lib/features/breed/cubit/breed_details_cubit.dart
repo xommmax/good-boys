@@ -8,11 +8,9 @@ part 'breed_details_state.dart';
 part 'breed_details_cubit.freezed.dart';
 
 class BreedDetailsCubit extends Cubit<BreedDetailsState> {
-  BreedDetailsCubit(Breed breed, this._breedRepository)
-      : super(BreedDetailsState(
-          breed: breed,
-          imageUrls: {breed.imageUrl},
-        )) {
+  BreedDetailsCubit({required Breed breed, required BreedRepository breedRepository})
+      : _breedRepository = breedRepository,
+        super(BreedDetailsState(breed: breed, imageUrls: {breed.imageUrl})) {
     fetchImageUrls();
     checkIfFavorite();
   }

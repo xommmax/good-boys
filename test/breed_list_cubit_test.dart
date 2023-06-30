@@ -21,11 +21,11 @@ void main() {
       when(
         () => breedRepository.getBreeds(page: any(named: 'page'), limit: any(named: 'limit')),
       ).thenAnswer((_) async => [testRepoBreed]);
-      breedListCubit = BreedsCubit(breedRepository);
+      breedListCubit = BreedsCubit(breedRepository: breedRepository);
     });
 
     test('initial state is correct', () {
-      final breedListCubit = BreedsCubit(breedRepository);
+      final breedListCubit = BreedsCubit(breedRepository: breedRepository);
       expect(breedListCubit.state, BreedsState());
     });
 

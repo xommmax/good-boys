@@ -13,16 +13,15 @@ class Breed with _$Breed {
 
   const factory Breed({
     required int id,
+    required String name,
+    required String imageUrl,
     required String? weight,
     required String? height,
-    required String name,
     required String? bredFor,
     required String? breedGroup,
     required String? lifeSpan,
     required String? temperament,
     required String? origin,
-    required String imageUrl,
-    required bool isFavorite,
   }) = _Breed;
 
   factory Breed.fromJson(Map<String, dynamic> json) => _$BreedFromJson(json);
@@ -37,8 +36,7 @@ class Breed with _$Breed {
         lifeSpan: breed.lifeSpan,
         temperament: breed.temperament,
         origin: breed.origin,
-        imageUrl: breed.image?['url'],
-        isFavorite: false,
+        imageUrl: breed.image!['url'],
       );
 
   factory Breed.fromDb(local_storage.Breed breed) => Breed(
@@ -52,7 +50,6 @@ class Breed with _$Breed {
         temperament: breed.temperament,
         origin: breed.origin,
         imageUrl: breed.imageUrl,
-        isFavorite: breed.isFavorite,
       );
 
   local_storage.Breed toDb() {
@@ -67,7 +64,6 @@ class Breed with _$Breed {
     breed.temperament = temperament;
     breed.origin = origin;
     breed.imageUrl = imageUrl;
-    breed.isFavorite = isFavorite;
     return breed;
   }
 }

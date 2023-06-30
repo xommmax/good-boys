@@ -5,8 +5,10 @@ import 'package:flutter_demo_app/features/breed/models/breed/breed.dart';
 import 'package:flutter_demo_app/features/favorites/cubit/favorites_list_state.dart';
 
 class FavoritesListCubit extends Cubit<FavoritesListState> {
-  FavoritesListCubit(this._breedRepository) : super(const FavoritesListState()) {
-    _getFavorites();
+  FavoritesListCubit({required BreedRepository breedRepository})
+      : _breedRepository = breedRepository,
+        super(const FavoritesListState()) {
+    _initFavorites();
     _listenFavoriteBreeds();
   }
 
@@ -20,7 +22,7 @@ class FavoritesListCubit extends Cubit<FavoritesListState> {
     });
   }
 
-  Future<void> _getFavorites() async {
+  Future<void> _initFavorites() async {
     final result = await _breedRepository.getFavorites();
     final breeds = result.map((e) => Breed.fromRepo(e)).toList();
     emit(state.copyWith(breeds: breeds));

@@ -22,6 +22,7 @@ Breed _$BreedFromJson(Map<String, dynamic> json) {
 mixin _$Breed {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get imageUrl => throw _privateConstructorUsedError;
   String? get weight => throw _privateConstructorUsedError;
   String? get height => throw _privateConstructorUsedError;
   String? get bredFor => throw _privateConstructorUsedError;
@@ -29,8 +30,6 @@ mixin _$Breed {
   String? get lifeSpan => throw _privateConstructorUsedError;
   String? get temperament => throw _privateConstructorUsedError;
   String? get origin => throw _privateConstructorUsedError;
-  String get imageUrl => throw _privateConstructorUsedError;
-  bool get isFavorite => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,15 +44,14 @@ abstract class $BreedCopyWith<$Res> {
   $Res call(
       {int id,
       String name,
+      String imageUrl,
       String? weight,
       String? height,
       String? bredFor,
       String? breedGroup,
       String? lifeSpan,
       String? temperament,
-      String? origin,
-      String imageUrl,
-      bool isFavorite});
+      String? origin});
 }
 
 /// @nodoc
@@ -71,6 +69,7 @@ class _$BreedCopyWithImpl<$Res, $Val extends Breed>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? imageUrl = null,
     Object? weight = freezed,
     Object? height = freezed,
     Object? bredFor = freezed,
@@ -78,8 +77,6 @@ class _$BreedCopyWithImpl<$Res, $Val extends Breed>
     Object? lifeSpan = freezed,
     Object? temperament = freezed,
     Object? origin = freezed,
-    Object? imageUrl = null,
-    Object? isFavorite = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -89,6 +86,10 @@ class _$BreedCopyWithImpl<$Res, $Val extends Breed>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
       weight: freezed == weight
           ? _value.weight
@@ -118,14 +119,6 @@ class _$BreedCopyWithImpl<$Res, $Val extends Breed>
           ? _value.origin
           : origin // ignore: cast_nullable_to_non_nullable
               as String?,
-      imageUrl: null == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      isFavorite: null == isFavorite
-          ? _value.isFavorite
-          : isFavorite // ignore: cast_nullable_to_non_nullable
-              as bool,
     ) as $Val);
   }
 }
@@ -139,15 +132,14 @@ abstract class _$$_BreedCopyWith<$Res> implements $BreedCopyWith<$Res> {
   $Res call(
       {int id,
       String name,
+      String imageUrl,
       String? weight,
       String? height,
       String? bredFor,
       String? breedGroup,
       String? lifeSpan,
       String? temperament,
-      String? origin,
-      String imageUrl,
-      bool isFavorite});
+      String? origin});
 }
 
 /// @nodoc
@@ -161,6 +153,7 @@ class __$$_BreedCopyWithImpl<$Res> extends _$BreedCopyWithImpl<$Res, _$_Breed>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? imageUrl = null,
     Object? weight = freezed,
     Object? height = freezed,
     Object? bredFor = freezed,
@@ -168,8 +161,6 @@ class __$$_BreedCopyWithImpl<$Res> extends _$BreedCopyWithImpl<$Res, _$_Breed>
     Object? lifeSpan = freezed,
     Object? temperament = freezed,
     Object? origin = freezed,
-    Object? imageUrl = null,
-    Object? isFavorite = null,
   }) {
     return _then(_$_Breed(
       id: null == id
@@ -179,6 +170,10 @@ class __$$_BreedCopyWithImpl<$Res> extends _$BreedCopyWithImpl<$Res, _$_Breed>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
       weight: freezed == weight
           ? _value.weight
@@ -208,14 +203,6 @@ class __$$_BreedCopyWithImpl<$Res> extends _$BreedCopyWithImpl<$Res, _$_Breed>
           ? _value.origin
           : origin // ignore: cast_nullable_to_non_nullable
               as String?,
-      imageUrl: null == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      isFavorite: null == isFavorite
-          ? _value.isFavorite
-          : isFavorite // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -226,15 +213,14 @@ class _$_Breed implements _Breed {
   const _$_Breed(
       {required this.id,
       required this.name,
+      required this.imageUrl,
       required this.weight,
       required this.height,
       required this.bredFor,
       required this.breedGroup,
       required this.lifeSpan,
       required this.temperament,
-      required this.origin,
-      required this.imageUrl,
-      required this.isFavorite});
+      required this.origin});
 
   factory _$_Breed.fromJson(Map<String, dynamic> json) =>
       _$$_BreedFromJson(json);
@@ -243,6 +229,8 @@ class _$_Breed implements _Breed {
   final int id;
   @override
   final String name;
+  @override
+  final String imageUrl;
   @override
   final String? weight;
   @override
@@ -257,14 +245,10 @@ class _$_Breed implements _Breed {
   final String? temperament;
   @override
   final String? origin;
-  @override
-  final String imageUrl;
-  @override
-  final bool isFavorite;
 
   @override
   String toString() {
-    return 'Breed(id: $id, name: $name, weight: $weight, height: $height, bredFor: $bredFor, breedGroup: $breedGroup, lifeSpan: $lifeSpan, temperament: $temperament, origin: $origin, imageUrl: $imageUrl, isFavorite: $isFavorite)';
+    return 'Breed(id: $id, name: $name, imageUrl: $imageUrl, weight: $weight, height: $height, bredFor: $bredFor, breedGroup: $breedGroup, lifeSpan: $lifeSpan, temperament: $temperament, origin: $origin)';
   }
 
   @override
@@ -274,6 +258,8 @@ class _$_Breed implements _Breed {
             other is _$_Breed &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
             (identical(other.weight, weight) || other.weight == weight) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.bredFor, bredFor) || other.bredFor == bredFor) &&
@@ -283,17 +269,13 @@ class _$_Breed implements _Breed {
                 other.lifeSpan == lifeSpan) &&
             (identical(other.temperament, temperament) ||
                 other.temperament == temperament) &&
-            (identical(other.origin, origin) || other.origin == origin) &&
-            (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl) &&
-            (identical(other.isFavorite, isFavorite) ||
-                other.isFavorite == isFavorite));
+            (identical(other.origin, origin) || other.origin == origin));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, weight, height,
-      bredFor, breedGroup, lifeSpan, temperament, origin, imageUrl, isFavorite);
+  int get hashCode => Object.hash(runtimeType, id, name, imageUrl, weight,
+      height, bredFor, breedGroup, lifeSpan, temperament, origin);
 
   @JsonKey(ignore: true)
   @override
@@ -313,15 +295,14 @@ abstract class _Breed implements Breed {
   const factory _Breed(
       {required final int id,
       required final String name,
+      required final String imageUrl,
       required final String? weight,
       required final String? height,
       required final String? bredFor,
       required final String? breedGroup,
       required final String? lifeSpan,
       required final String? temperament,
-      required final String? origin,
-      required final String imageUrl,
-      required final bool isFavorite}) = _$_Breed;
+      required final String? origin}) = _$_Breed;
 
   factory _Breed.fromJson(Map<String, dynamic> json) = _$_Breed.fromJson;
 
@@ -329,6 +310,8 @@ abstract class _Breed implements Breed {
   int get id;
   @override
   String get name;
+  @override
+  String get imageUrl;
   @override
   String? get weight;
   @override
@@ -343,10 +326,6 @@ abstract class _Breed implements Breed {
   String? get temperament;
   @override
   String? get origin;
-  @override
-  String get imageUrl;
-  @override
-  bool get isFavorite;
   @override
   @JsonKey(ignore: true)
   _$$_BreedCopyWith<_$_Breed> get copyWith =>

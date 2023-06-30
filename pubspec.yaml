@@ -23,6 +23,7 @@ dependencies:
   cached_network_image: ^3.2.3
   flutter_staggered_animations: ^1.1.1
   swipable_stack: ^2.0.0
+  get_it: ^7.6.0
 
 dev_dependencies:
   flutter_test:

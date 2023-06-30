@@ -1,22 +1,14 @@
-import 'package:breed_repository/breed_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_demo_app/common/service_locator.dart';
+import 'package:go_router/go_router.dart';
 
-import 'common/nav/router.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 
 class BreedApp extends StatelessWidget {
   const BreedApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MultiRepositoryProvider(
-      providers: [
-        RepositoryProvider(create: (context) => BreedRepository()),
-      ],
-      child: const BreedAppView(),
-    );
-  }
+  Widget build(BuildContext context) => const BreedAppView();
 }
 
 class BreedAppView extends StatelessWidget {
@@ -24,7 +16,7 @@ class BreedAppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp.router(
-        routerConfig: AppRouter(),
+        routerConfig: getIt<GoRouter>(),
         localizationsDelegates: L10n.localizationsDelegates,
         supportedLocales: L10n.supportedLocales,
       );

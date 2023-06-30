@@ -12,38 +12,35 @@ _$_Breed _$$_BreedFromJson(Map<String, dynamic> json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_Breed(
           id: $checkedConvert('id', (v) => v as int),
+          name: $checkedConvert('name', (v) => v as String),
+          imageUrl: $checkedConvert('image_url', (v) => v as String),
           weight: $checkedConvert('weight', (v) => v as String?),
           height: $checkedConvert('height', (v) => v as String?),
-          name: $checkedConvert('name', (v) => v as String),
           bredFor: $checkedConvert('bred_for', (v) => v as String?),
           breedGroup: $checkedConvert('breed_group', (v) => v as String?),
           lifeSpan: $checkedConvert('life_span', (v) => v as String?),
           temperament: $checkedConvert('temperament', (v) => v as String?),
           origin: $checkedConvert('origin', (v) => v as String?),
-          imageUrl: $checkedConvert('image_url', (v) => v as String),
-          isFavorite: $checkedConvert('is_favorite', (v) => v as bool),
         );
         return val;
       },
       fieldKeyMap: const {
+        'imageUrl': 'image_url',
         'bredFor': 'bred_for',
         'breedGroup': 'breed_group',
-        'lifeSpan': 'life_span',
-        'imageUrl': 'image_url',
-        'isFavorite': 'is_favorite'
+        'lifeSpan': 'life_span'
       },
     );
 
 Map<String, dynamic> _$$_BreedToJson(_$_Breed instance) => <String, dynamic>{
       'id': instance.id,
+      'name': instance.name,
+      'image_url': instance.imageUrl,
       'weight': instance.weight,
       'height': instance.height,
-      'name': instance.name,
       'bred_for': instance.bredFor,
       'breed_group': instance.breedGroup,
       'life_span': instance.lifeSpan,
       'temperament': instance.temperament,
       'origin': instance.origin,
-      'image_url': instance.imageUrl,
-      'is_favorite': instance.isFavorite,
     };
