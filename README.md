@@ -18,9 +18,9 @@ Displays dog breeds info from [Dog API](https://thedogapi.com/)
 <table>
   <thead>
     <tr>
-      <th width="300px">Breeds</th>
-      <th width="300px">Breed details</th>
-      <th width="300px">Search</th>
+      <th width="250px">Breeds</th>
+      <th width="250px">Breed details</th>
+      <th width="250px">Search</th>
     </tr>
   </thead>
   <tbody>
@@ -36,9 +36,9 @@ Displays dog breeds info from [Dog API](https://thedogapi.com/)
       </td>
     </tr>
     <tr>
-      <th width="300px">Favorites</th>
-      <th width="300px">Voting</th>
-      <th width="300px">Video</th>
+      <th width="250px">Favorites</th>
+      <th width="250px">Voting</th>
+      <th width="250px">Video</th>
     </tr>
     <tr>
       <td>
