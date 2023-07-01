@@ -15,16 +15,12 @@ Displays dog breeds info from [Dog API](https://thedogapi.com/)
 * [mocktail](https://pub.dev/packages/mocktail) and [bloc_test](https://pub.dev/packages/bloc_test) for unit testing
 
 ## Screenshots
-
-|dsaddsaddsaddsaddsaddsaddsaddsadddsaddsaddsad|dsaddsaddsaddsaddsaddsaddsaddsadddsaddsaddsad|dsaddsaddsaddsaddsaddsaddsaddsadddsaddsaddsad|
-|:--:|:--:|:--:|
-
 <table>
   <thead>
     <tr>
-      <th width="333px">Breeds</th>
-      <th width="333px">Breed details</th>
-      <th width="333px">Search</th>
+      <th width="300px">Breeds</th>
+      <th width="300px">Breed details</th>
+      <th width="300px">Search</th>
     </tr>
   </thead>
   <tbody>
@@ -40,9 +36,9 @@ Displays dog breeds info from [Dog API](https://thedogapi.com/)
       </td>
     </tr>
     <tr>
-      <th width="333px">Favorites</th>
-      <th width="333px">Voting</th>
-      <th width="333px">Video</th>
+      <th width="300px">Favorites</th>
+      <th width="300px">Voting</th>
+      <th width="300px">Video</th>
     </tr>
     <tr>
       <td>
