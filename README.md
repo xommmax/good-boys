@@ -1,11 +1,17 @@
 # Good Boys Catalogue
 
-Flutter demo application that utilize best practices for building Flutter mobile apps.
+Flutter demo application that utilizes best practices for building Flutter mobile apps.
 
-### Tech stack
+Displays dog breeds info from [Dog API](https://thedogapi.com/)
+
 ## Tech stack
 * Architecture design pattern: [BLoC](https://bloclibrary.dev/)
 * Navigation: [go_router](https://pub.dev/packages/go_router)
 * Localization: [flutter_localizations](https://docs.flutter.dev/accessibility-and-localization/internationalization#setting-up)
-* [freezed](https://pub.dev/packages/freezed) code generator
-* [get_it](https://pub.dev/packages/get_it)
+* [dio](https://pub.dev/packages/dio) as HTTP client
+* [isar](https://pub.dev/packages/isar) as NoSQL local database
+* [get_it](https://pub.dev/packages/get_it) as Service Locator
+* [freezed](https://pub.dev/packages/freezed) for Code Generation
+* [mocktail](https://pub.dev/packages/mocktail) and [bloc_test](https://pub.dev/packages/bloc_test) for unit testing
+
+## Screenshots  
