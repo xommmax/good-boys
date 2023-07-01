@@ -18,9 +18,9 @@ Displays dog breeds info from [Dog API](https://thedogapi.com/)
 
 | Breeds | Breed details | Search |
 |:---:|:---:|:---:|
-| <img src="./assets/screenshots/breeds.jpg" width=300 /> | <img src="./assets/screenshots/breed_details.jpg" width=300 /> | <img src="./assets/screenshots/search.jpg" width=300 /> |
+| <img src="./assets/screenshots/breeds.jpg" width=400 /> | <img src="./assets/screenshots/breed_details.jpg" width=400 /> | <img src="./assets/screenshots/search.jpg" width=400 /> |
 | Favorites | Voting | Video |
-| <img src="./assets/screenshots/favorites.jpg" width=300 /> | <img src="./assets/screenshots/voting.jpg" width=300 />  | <video src="https://github.com/4lfant/flutter_demo_app/assets/13089900/5356f5d7-730b-4aca-97a6-5d72c8fd4fec" width=200 /> |
+| <img src="./assets/screenshots/favorites.jpg" width=400 /> | <img src="./assets/screenshots/voting.jpg" width=400 />  | <video src="https://github.com/4lfant/flutter_demo_app/assets/13089900/5356f5d7-730b-4aca-97a6-5d72c8fd4fec" width=200 /> |
 
 
 
