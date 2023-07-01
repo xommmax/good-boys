@@ -48,7 +48,7 @@ Displays dog breeds info from [Dog API](https://thedogapi.com/)
         <image src="./assets/screenshots/voting.jpg" />
       </td>
       <td>
-         <video src="https://github.com/4lfant/flutter_demo_app/assets/13089900/5356f5d7-730b-4aca-97a6-5d72c8fd4fec" />
+         <video src="https://github.com/4lfant/flutter_demo_app/assets/13089900/34edcca1-49ef-427c-983b-379c70f2f49f" />
       </td>
     </tr>
   </tbody>
