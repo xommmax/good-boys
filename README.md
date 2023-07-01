@@ -16,19 +16,15 @@ Displays dog breeds info from [Dog API](https://thedogapi.com/)
 
 ## Screenshots
 
-| Breeds | Breed details | Search |
-|:---:|:---:|:---:|
-| ![](./assets/screenshots/breeds.jpg) | ![](./assets/screenshots/breed_details.jpg) | ![](./assets/screenshots/search.jpg) |
-| Favorites | Voting | Video |
-| ![](./assets/screenshots/favorites.jpg) | ![](./assets/screenshots/voting.jpg) | |
-
+|dsaddsaddsaddsaddsaddsaddsaddsadddsaddsaddsad|dsaddsaddsaddsaddsaddsaddsaddsadddsaddsaddsad|dsaddsaddsaddsaddsaddsaddsaddsadddsaddsaddsad|
+|:--:|:--:|:--:|
 
 <table>
   <thead>
     <tr>
-      <th width="300px">Breeds</th>
-      <th width="300px">Breed details</th>
-      <th width="300px">Search</th>
+      <th width="333px">Breeds</th>
+      <th width="333px">Breed details</th>
+      <th width="333px">Search</th>
     </tr>
   </thead>
   <tbody>
@@ -44,9 +40,9 @@ Displays dog breeds info from [Dog API](https://thedogapi.com/)
       </td>
     </tr>
     <tr>
-      <th width="300px">Favorites</th>
-      <th width="300px">Voting</th>
-      <th width="300px">Video</th>
+      <th width="333px">Favorites</th>
+      <th width="333px">Voting</th>
+      <th width="333px">Video</th>
     </tr>
     <tr>
       <td>
