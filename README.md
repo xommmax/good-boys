@@ -15,13 +15,8 @@ Displays dog breeds info from [Dog API](https://thedogapi.com/)
 * [mocktail](https://pub.dev/packages/mocktail) and [bloc_test](https://pub.dev/packages/bloc_test) for unit testing
 
 ## Screenshots  
-| Breeds | Breed details | Search |
-|:---:|:---:|:---:|
-| ![](./assets/screenshots/breeds.jpg) | ![](./assets/screenshots/breed_details.jpg) | ![](./assets/screenshots/search.jpg) |
-
-
-| Favorites | Voting |
-|:---:|:---:|
-| ![](./assets/screenshots/favorites.jpg) | ![](./assets/screenshots/voting.jpg) |
+| Breeds | Breed details | Search | Voting |
+|:---:|:---:|:---:|:---:|
+| ![](./assets/screenshots/breeds.jpg) | ![](./assets/screenshots/breed_details.jpg) | ![](./assets/screenshots/search.jpg) | ![](./assets/screenshots/voting.jpg) |
 
 https://github.com/4lfant/flutter_demo_app/assets/13089900/34edcca1-49ef-427c-983b-379c70f2f49f
