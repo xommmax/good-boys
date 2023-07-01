@@ -15,3 +15,8 @@ Displays dog breeds info from [Dog API](https://thedogapi.com/)
 * [mocktail](https://pub.dev/packages/mocktail) and [bloc_test](https://pub.dev/packages/bloc_test) for unit testing
 
 ## Screenshots  
+Breeds|Breed details|Search
+:-:|:-:|:-:
+![](./assets/screenshots/breeds.jpg) | ![](./assets/screenshots/breed_details.jpg) | ![](./assets/screenshots/search.jpg)
+Favorites|Voting|Video
+![](./assets/screenshots/favorites.jpg) | ![](./assets/screenshots/voting.jpg) | ![](./assets/screenshots/video.mov)
