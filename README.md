@@ -1,6 +1,6 @@
 # Good Boys Catalogue
 
-Flutter demo application that utilizes best practices for building Flutter mobile apps.
+Flutter demo application that utilizes best practices for building Flutter mobile apps. 
 
 Displays dog breeds info from [Dog API](https://thedogapi.com/)
 
